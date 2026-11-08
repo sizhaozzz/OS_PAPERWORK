@@ -1,0 +1,7 @@
+run,workload,schedules,buggy_interleavings,timeouts,SEGV,heap_use_after_free,double_free,first_SEGV,first_heap_use_after_free,first_double_free
+initial-validation-20261106-122033,doubleFree,6,4,0,0,0,4,,,3
+initial-validation-20261106-122033,CVE-2016-1972,346,25,0,15,9,1,3,164,330
+initial-validation-20261106-122202,doubleFree,6,4,0,0,0,4,,,3
+initial-validation-20261106-122202,CVE-2016-1972,346,28,0,16,11,1,3,164,330
+validation-20261106T123317Z-1,doubleFree,6,4,0,0,0,4,,,3
+validation-20261106T123317Z-1,CVE-2016-1972,354,28,0,16,11,1,3,168,338

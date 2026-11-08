@@ -1,0 +1,65 @@
+RUN_ID=validation-20261106T123317Z-1
+WORK=/workdir/period-validation.T3IyJm
+PASS: SCHED_DEADLINE
+PASS: doubleFree compiled, statically analyzed and instrumented
+Finished: doubleFree schedule exploration
+PASS: CVE-2016-1972 compiled, statically analyzed and instrumented
+Finished: CVE-2016-1972 schedule exploration
+{
+  "doubleFree": {
+    "schedules": 6,
+    "buggy_interleavings": 4,
+    "timeouts": 0,
+    "bug_types": {
+      "double-free": 4
+    },
+    "first_bug_schedule": {
+      "double-free": 3
+    },
+    "replays": [
+      {
+        "type": "double-free",
+        "schedule": "/workdir/period-validation.T3IyJm/doubleFree/out_df_1/Errors/000001_0000003_double-free",
+        "log": "doubleFree-replay-double-free.log"
+      }
+    ],
+    "work_directory": "/workdir/period-validation.T3IyJm/doubleFree",
+    "test_command": "python3 -u $ROOT_DIR/tool/DBDS/run_PDS.py -y -d 3 ./df"
+  },
+  "CVE-2016-1972": {
+    "schedules": 354,
+    "buggy_interleavings": 28,
+    "timeouts": 0,
+    "bug_types": {
+      "SEGV": 16,
+      "heap-use-after-free": 11,
+      "double-free": 1
+    },
+    "first_bug_schedule": {
+      "SEGV": 3,
+      "heap-use-after-free": 168,
+      "double-free": 338
+    },
+    "replays": [
+      {
+        "type": "SEGV",
+        "schedule": "/workdir/period-validation.T3IyJm/CVE-2016-1972/out_2016-1972_1/Errors/000001_0000003_SEGV",
+        "log": "CVE-2016-1972-replay-SEGV.log"
+      },
+      {
+        "type": "double-free",
+        "schedule": "/workdir/period-validation.T3IyJm/CVE-2016-1972/out_2016-1972_1/Errors/000022_0000338_double-free",
+        "log": "CVE-2016-1972-replay-double-free.log"
+      },
+      {
+        "type": "heap-use-after-free",
+        "schedule": "/workdir/period-validation.T3IyJm/CVE-2016-1972/out_2016-1972_1/Errors/000006_0000168_heap-use-after-free",
+        "log": "CVE-2016-1972-replay-heap-use-after-free.log"
+      }
+    ],
+    "work_directory": "/workdir/period-validation.T3IyJm/CVE-2016-1972",
+    "test_command": "python3 -u $ROOT_DIR/tool/DBDS/run_PDS.py -y -d 5 --runs=10000 ./2016-1972"
+  }
+}
+PASS: fresh builds, schedule exploration, saved error schedules and replay
+VALIDATION_PASSED=/repro/results/validation-20261106T123317Z-1

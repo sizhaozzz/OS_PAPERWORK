@@ -1,0 +1,48 @@
++ cd /workdir/period-validation.T3IyJm/doubleFree
++ sha256sum df.c
+e1e0dde0e204fe857b84fcc0d7d564b3eeb57c14debea34f846068e1c9f20eea  df.c
++ clang -g -emit-llvm -c df.c -o df.bc
+df.c:16:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+df.c:24:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+2 warnings generated.
++ bash /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh df
+[*] Making static analysis directory
+[*] DIR: /workdir/period-validation.T3IyJm/doubleFree
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.df
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root   48 Nov  6 12:33 ConConfig.df
+-rw-r--r-- 1 root root 5.5K Nov  6 12:33 df.bc
+-rwxr-xr-x 1 root root  558 Nov  6 12:33 df.c
+-rw-r--r-- 1 root root  833 Nov  6 12:33 mempair.df
+-rw-r--r-- 1 root root 5.2K Nov  6 12:33 mempair.df.npz
+-rw-r--r-- 1 root root  768 Nov  6 12:33 mssa.df
+-rw-r--r-- 1 root root  577 Nov  6 12:33 so.df
+/workdir/period-validation.T3IyJm/doubleFree
++ export Con_PATH=/workdir/period-validation.T3IyJm/doubleFree/ConConfig.df
++ Con_PATH=/workdir/period-validation.T3IyJm/doubleFree/ConConfig.df
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast -g -fsanitize=address -c df.c -o df.o
+df.c:16:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+df.c:24:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+2 warnings generated.
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/period-validation.T3IyJm/doubleFree/ConConfig.df
+[DEBUG]
+[DEBUG] Instrumentation for df.c:11
+[DEBUG] Instrumentation for df.c:13
+[DEBUG] Instrumentation for df.c:20
+[DEBUG] Instrumentation for df.c:22
+[DEBUG] Instrumentation for df.c:28
+[DEBUG] Instrumentation for df.c:29
++ clang++ df.o /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/DBDSFunction.o -g -o df -lpthread -fsanitize=address -ldl
