@@ -1,0 +1,57 @@
+RUN_ID=initial-validation-20261106-122202
+WORK=/workdir/initial-validation-20261106-122202
+PASS: SCHED_DEADLINE
+PASS: doubleFree compiled, statically analyzed and instrumented
+Finished: doubleFree schedule exploration
+PASS: CVE-2016-1972 compiled, statically analyzed and instrumented
+Finished: CVE-2016-1972 schedule exploration
+{
+  "doubleFree": {
+    "schedules": 6,
+    "buggy_interleavings": 4,
+    "timeouts": 0,
+    "bug_types": {
+      "double-free": 4
+    },
+    "replays": [
+      {
+        "type": "double-free",
+        "schedule": "/workdir/initial-validation-20261106-122202/doubleFree/out_df_1/Errors/000001_0000003_double-free",
+        "log": "doubleFree-replay-double-free.log"
+      }
+    ],
+    "work_directory": "/workdir/initial-validation-20261106-122202/doubleFree",
+    "test_command": "python3 -u $ROOT_DIR/tool/DBDS/run_PDS.py -y -d 3 ./df"
+  },
+  "CVE-2016-1972": {
+    "schedules": 346,
+    "buggy_interleavings": 28,
+    "timeouts": 0,
+    "bug_types": {
+      "SEGV": 16,
+      "heap-use-after-free": 11,
+      "double-free": 1
+    },
+    "replays": [
+      {
+        "type": "SEGV",
+        "schedule": "/workdir/initial-validation-20261106-122202/CVE-2016-1972/out_2016-1972_1/Errors/000001_0000003_SEGV",
+        "log": "CVE-2016-1972-replay-SEGV.log"
+      },
+      {
+        "type": "double-free",
+        "schedule": "/workdir/initial-validation-20261106-122202/CVE-2016-1972/out_2016-1972_1/Errors/000022_0000330_double-free",
+        "log": "CVE-2016-1972-replay-double-free.log"
+      },
+      {
+        "type": "heap-use-after-free",
+        "schedule": "/workdir/initial-validation-20261106-122202/CVE-2016-1972/out_2016-1972_1/Errors/000006_0000164_heap-use-after-free",
+        "log": "CVE-2016-1972-replay-heap-use-after-free.log"
+      }
+    ],
+    "work_directory": "/workdir/initial-validation-20261106-122202/CVE-2016-1972",
+    "test_command": "python3 -u $ROOT_DIR/tool/DBDS/run_PDS.py -y -d 5 --runs=10000 ./2016-1972"
+  }
+}
+PASS: fresh builds, schedule exploration, saved error schedules and replay
+VALIDATION_PASSED=/repro-logs/initial-validation-20261106-122202

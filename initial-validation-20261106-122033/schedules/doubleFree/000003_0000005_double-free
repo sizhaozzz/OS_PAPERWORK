@@ -1,0 +1,31 @@
+[[0, 2], [1, 2]]
+sudo: unable to resolve host bc203cba1a02: Resource temporarily unavailable
+=================================================================
+==206==ERROR: AddressSanitizer: attempting double-free on 0x602000000010 in thread T2:
+    #0 0x4941dd  (/workdir/initial-validation-20261106-122033/doubleFree/df+0x4941dd)
+    #1 0x4c65b1  (/workdir/initial-validation-20261106-122033/doubleFree/df+0x4c65b1)
+    #2 0x75237867c6da  (/lib/x86_64-linux-gnu/libpthread.so.0+0x76da)
+    #3 0x75237765a71e  (/lib/x86_64-linux-gnu/libc.so.6+0x12171e)
+
+0x602000000010 is located 0 bytes inside of 7-byte region [0x602000000010,0x602000000017)
+freed by thread T1 here:
+    #0 0x4941dd  (/workdir/initial-validation-20261106-122033/doubleFree/df+0x4941dd)
+    #1 0x4c6511  (/workdir/initial-validation-20261106-122033/doubleFree/df+0x4c6511)
+
+previously allocated by thread T0 here:
+    #0 0x49445d  (/workdir/initial-validation-20261106-122033/doubleFree/df+0x49445d)
+    #1 0x4c66d0  (/workdir/initial-validation-20261106-122033/doubleFree/df+0x4c66d0)
+    #2 0x75237755abf6  (/lib/x86_64-linux-gnu/libc.so.6+0x21bf6)
+
+Thread T2 created by T0 here:
+    #0 0x47f20a  (/workdir/initial-validation-20261106-122033/doubleFree/df+0x47f20a)
+    #1 0x4c6772  (/workdir/initial-validation-20261106-122033/doubleFree/df+0x4c6772)
+    #2 0x75237755abf6  (/lib/x86_64-linux-gnu/libc.so.6+0x21bf6)
+
+Thread T1 created by T0 here:
+    #0 0x47f20a  (/workdir/initial-validation-20261106-122033/doubleFree/df+0x47f20a)
+    #1 0x4c674f  (/workdir/initial-validation-20261106-122033/doubleFree/df+0x4c674f)
+    #2 0x75237755abf6  (/lib/x86_64-linux-gnu/libc.so.6+0x21bf6)
+
+SUMMARY: AddressSanitizer: double-free (/workdir/initial-validation-20261106-122033/doubleFree/df+0x4941dd) 
+==206==ABORTING
