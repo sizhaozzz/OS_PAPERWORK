@@ -77,23 +77,30 @@ build_upstream_dir() {
     local dst_dir="$2"
     local build_log="$3"
 
-    rm -rf "$dst_dir"
-    mkdir -p "$(dirname "$dst_dir")"
-    cp -a "$src_dir" "$dst_dir"
-
     (
         set -x
-        cd "$dst_dir"
+        cd "$src_dir"
         if [[ -f ./cleanDIR.sh ]]; then
             bash ./cleanDIR.sh || true
         fi
         if [[ -f ./build.sh ]]; then
             bash ./build.sh
         else
-            echo "ERROR: build.sh not found in $dst_dir" >&2
+            echo "ERROR: build.sh not found in $src_dir" >&2
             exit 1
         fi
     ) > "$build_log" 2>&1
+
+    rm -rf "$dst_dir"
+    mkdir -p "$(dirname "$dst_dir")"
+    cp -a "$src_dir" "$dst_dir"
+
+    (
+        cd "$src_dir"
+        if [[ -f ./cleanDIR.sh ]]; then
+            bash ./cleanDIR.sh || true
+        fi
+    ) >/dev/null 2>&1
 }
 
 find_binary() {
