@@ -72,41 +72,23 @@ if libc.syscall(314, 0, ctypes.byref(attr), 0) != 0:
 print("PASS: SCHED_DEADLINE")
 PY
 
-# Patch a temporary copy of run_OldPDS.py to match DBDSFunction.o's uint16_t shared-memory layout
+# Build a Serial (SBPSched) runner from the working run_PDS.py so uint16_t shared-memory layout matches DBDSFunction.o
 python3 - <<PY
 from pathlib import Path
-src = Path("$ROOT_DIR/tool/DBDS/run_OldPDS.py").read_text()
+src = Path("$ROOT_DIR/tool/DBDS/run_PDS.py").read_text()
+src = "import sys\nsys.path.insert(0, '$ROOT_DIR/tool/DBDS')\nfrom sbp_sched import SBPSched\n" + src
 replacements = [
-    (
-        "IPC_KEY, MAP_SIZE, IPC_CREAT, IPC_EXCL = 1111, sizeof(c_ulonglong) + sizeof(c_uint)*(3+SHARE_THREAD_NUM+3*SHARE_ARRAY_SIZE), 512, 1024",
-        "IPC_KEY, MAP_SIZE, IPC_CREAT, IPC_EXCL = 1111, sizeof(c_ulonglong) + sizeof(c_uint)*3 + sizeof(c_uint16)*(SHARE_THREAD_NUM + 3*SHARE_ARRAY_SIZE), 512, 1024",
-    ),
-    (
-        "memmove(byref(kpNumArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*3, sizeof(c_uint)*SHARE_THREAD_NUM)",
-        "memmove(byref(kpNumArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*3, sizeof(c_uint16)*SHARE_THREAD_NUM)",
-    ),
-    (
-        "memmove(byref(kpYieldArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*(3+SHARE_THREAD_NUM), sizeof(c_uint)*SHARE_ARRAY_SIZE)",
-        "memmove(byref(kpYieldArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*3 + sizeof(c_uint16)*(SHARE_THREAD_NUM), sizeof(c_uint16)*(SHARE_ARRAY_SIZE))",
-    ),
-    (
-        "memmove(byref(kpLocArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*(3+SHARE_THREAD_NUM+SHARE_ARRAY_SIZE), sizeof(c_uint)*SHARE_ARRAY_SIZE)",
-        "memmove(byref(kpLocArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*3 + sizeof(c_uint16)*(SHARE_THREAD_NUM + SHARE_ARRAY_SIZE), sizeof(c_uint16)*SHARE_ARRAY_SIZE)",
-    ),
-    (
-        "memmove(byref(kpOrderArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*(3+SHARE_THREAD_NUM+2*SHARE_ARRAY_SIZE), sizeof(c_uint)*SHARE_ARRAY_SIZE)",
-        "memmove(byref(kpOrderArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*3 + sizeof(c_uint16)*(SHARE_THREAD_NUM + 2*SHARE_ARRAY_SIZE), sizeof(c_uint16)*SHARE_ARRAY_SIZE)",
-    ),
-    (
-        "tmparr = (c_uint * len(tmp))(*tmp)\n    memmove(ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*(3+SHARE_THREAD_NUM), tmparr, sizeof(c_uint) * len(tmp))",
-        "tmparr = (c_uint16 * len(tmp))(*tmp)\n    memmove(ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*3 + sizeof(c_uint16)*SHARE_THREAD_NUM, tmparr, sizeof(c_uint16) * len(tmp))",
-    ),
+    ("period_limit = bugDepth + 1", "period_limit = bugDepth + N - 1"),
+    ("for iterPeriod in range(2, period_limit+1):", "for iterPeriod in range(N_after_DryRun, period_limit+1):"),
+    ("if VarModeFlag == 0 or iterPeriod == 2:", "if VarModeFlag == 0 or (iterPeriod - N_after_DryRun + 1 < 2):"),
 ]
 for old, new in replacements:
     assert old in src, "Missing expected snippet: " + old
     src = src.replace(old, new)
+assert "SBPMESched" in src
+src = src.replace("SBPMESched", "SBPSched")
 Path("$work/run_OldPDS_patched.py").write_text(src)
-print("Patched run_OldPDS_patched.py successfully")
+print("Built Serial SBPSched runner from run_PDS.py")
 PY
 
 build_upstream_dir() {
