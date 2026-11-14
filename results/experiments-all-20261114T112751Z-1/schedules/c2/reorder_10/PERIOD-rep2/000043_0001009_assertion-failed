@@ -1,0 +1,4 @@
+[[3, 0], [0, 3], [3, 0], [3, 0], [3, 0], [3, 0], [2, 0], [3, 0], [3, 0], [1, 0]]
+sudo: unable to resolve host cfd1ab1422d4: Resource temporarily unavailable
+Bug found!
+reorder_10_bad: reorder_bad.c:80: void *checkThread(void *): Assertion `0' failed.

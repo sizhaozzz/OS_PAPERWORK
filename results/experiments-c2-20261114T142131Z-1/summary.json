@@ -1,0 +1,561 @@
+{
+  "c1": {},
+  "c2": {
+    "reorder_10_PERIOD": {
+      "program": "reorder_10",
+      "scheduler": "PERIOD",
+      "runs": [
+        {
+          "log": "reorder_10-PERIOD-rep1.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 2350,
+          "capped": false,
+          "buggy_interleavings": 90,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 90
+          },
+          "first_error_schedule": 27,
+          "first_bug_by_type": {
+            "assertion": 27
+          },
+          "rep": 1,
+          "saved_error_files": 90
+        },
+        {
+          "log": "reorder_10-PERIOD-rep2.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 2350,
+          "capped": false,
+          "buggy_interleavings": 90,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 90
+          },
+          "first_error_schedule": 27,
+          "first_bug_by_type": {
+            "assertion": 27
+          },
+          "rep": 2,
+          "saved_error_files": 90
+        },
+        {
+          "log": "reorder_10-PERIOD-rep3.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 2350,
+          "capped": false,
+          "buggy_interleavings": 89,
+          "timeouts": 1,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 89
+          },
+          "first_error_schedule": 42,
+          "first_bug_by_type": {
+            "assertion": 42
+          },
+          "rep": 3,
+          "saved_error_files": 89
+        }
+      ],
+      "bug_found_count": 3,
+      "schedules_mean": 2350.0,
+      "schedules_stdev": 0.0,
+      "first_error_mean": 32.0,
+      "first_error_stdev": 8.66,
+      "buggy_interleavings_mean": 89.67,
+      "buggy_interleavings_stdev": 0.58,
+      "any_capped": false
+    },
+    "reorder_10_Serial": {
+      "program": "reorder_10",
+      "scheduler": "Serial",
+      "runs": [
+        {
+          "log": "reorder_10-Serial-rep1.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 10001,
+          "capped": true,
+          "buggy_interleavings": 0,
+          "timeouts": 0,
+          "bug_found": false,
+          "bug_types": {},
+          "first_error_schedule": null,
+          "first_bug_by_type": {},
+          "rep": 1,
+          "saved_error_files": 0
+        },
+        {
+          "log": "reorder_10-Serial-rep2.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 10001,
+          "capped": true,
+          "buggy_interleavings": 0,
+          "timeouts": 0,
+          "bug_found": false,
+          "bug_types": {},
+          "first_error_schedule": null,
+          "first_bug_by_type": {},
+          "rep": 2,
+          "saved_error_files": 0
+        },
+        {
+          "log": "reorder_10-Serial-rep3.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 10001,
+          "capped": true,
+          "buggy_interleavings": 0,
+          "timeouts": 0,
+          "bug_found": false,
+          "bug_types": {},
+          "first_error_schedule": null,
+          "first_bug_by_type": {},
+          "rep": 3,
+          "saved_error_files": 0
+        }
+      ],
+      "bug_found_count": 0,
+      "schedules_mean": 10001.0,
+      "schedules_stdev": 0.0,
+      "first_error_mean": null,
+      "first_error_stdev": null,
+      "buggy_interleavings_mean": 0.0,
+      "buggy_interleavings_stdev": 0.0,
+      "any_capped": true
+    },
+    "reorder_3_PERIOD": {
+      "program": "reorder_3",
+      "scheduler": "PERIOD",
+      "runs": [
+        {
+          "log": "reorder_3-PERIOD-rep1.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 27,
+          "capped": false,
+          "buggy_interleavings": 6,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 6
+          },
+          "first_error_schedule": 6,
+          "first_bug_by_type": {
+            "assertion": 6
+          },
+          "rep": 1,
+          "saved_error_files": 6
+        },
+        {
+          "log": "reorder_3-PERIOD-rep2.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 27,
+          "capped": false,
+          "buggy_interleavings": 6,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 6
+          },
+          "first_error_schedule": 6,
+          "first_bug_by_type": {
+            "assertion": 6
+          },
+          "rep": 2,
+          "saved_error_files": 6
+        },
+        {
+          "log": "reorder_3-PERIOD-rep3.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 27,
+          "capped": false,
+          "buggy_interleavings": 6,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 6
+          },
+          "first_error_schedule": 6,
+          "first_bug_by_type": {
+            "assertion": 6
+          },
+          "rep": 3,
+          "saved_error_files": 6
+        }
+      ],
+      "bug_found_count": 3,
+      "schedules_mean": 27.0,
+      "schedules_stdev": 0.0,
+      "first_error_mean": 6.0,
+      "first_error_stdev": 0.0,
+      "buggy_interleavings_mean": 6.0,
+      "buggy_interleavings_stdev": 0.0,
+      "any_capped": false
+    },
+    "reorder_3_Serial": {
+      "program": "reorder_3",
+      "scheduler": "Serial",
+      "runs": [
+        {
+          "log": "reorder_3-Serial-rep1.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 30,
+          "capped": false,
+          "buggy_interleavings": 10,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 10
+          },
+          "first_error_schedule": 10,
+          "first_bug_by_type": {
+            "assertion": 10
+          },
+          "rep": 1,
+          "saved_error_files": 10
+        },
+        {
+          "log": "reorder_3-Serial-rep2.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 30,
+          "capped": false,
+          "buggy_interleavings": 10,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 10
+          },
+          "first_error_schedule": 10,
+          "first_bug_by_type": {
+            "assertion": 10
+          },
+          "rep": 2,
+          "saved_error_files": 10
+        },
+        {
+          "log": "reorder_3-Serial-rep3.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 30,
+          "capped": false,
+          "buggy_interleavings": 10,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 10
+          },
+          "first_error_schedule": 10,
+          "first_bug_by_type": {
+            "assertion": 10
+          },
+          "rep": 3,
+          "saved_error_files": 10
+        }
+      ],
+      "bug_found_count": 3,
+      "schedules_mean": 30.0,
+      "schedules_stdev": 0.0,
+      "first_error_mean": 10.0,
+      "first_error_stdev": 0.0,
+      "buggy_interleavings_mean": 10.0,
+      "buggy_interleavings_stdev": 0.0,
+      "any_capped": false
+    },
+    "reorder_4_PERIOD": {
+      "program": "reorder_4",
+      "scheduler": "PERIOD",
+      "runs": [
+        {
+          "log": "reorder_4-PERIOD-rep1.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 100,
+          "capped": false,
+          "buggy_interleavings": 12,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 12
+          },
+          "first_error_schedule": 9,
+          "first_bug_by_type": {
+            "assertion": 9
+          },
+          "rep": 1,
+          "saved_error_files": 12
+        },
+        {
+          "log": "reorder_4-PERIOD-rep2.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 100,
+          "capped": false,
+          "buggy_interleavings": 12,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 12
+          },
+          "first_error_schedule": 9,
+          "first_bug_by_type": {
+            "assertion": 9
+          },
+          "rep": 2,
+          "saved_error_files": 12
+        },
+        {
+          "log": "reorder_4-PERIOD-rep3.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 100,
+          "capped": false,
+          "buggy_interleavings": 12,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 12
+          },
+          "first_error_schedule": 9,
+          "first_bug_by_type": {
+            "assertion": 9
+          },
+          "rep": 3,
+          "saved_error_files": 12
+        }
+      ],
+      "bug_found_count": 3,
+      "schedules_mean": 100.0,
+      "schedules_stdev": 0.0,
+      "first_error_mean": 9.0,
+      "first_error_stdev": 0.0,
+      "buggy_interleavings_mean": 12.0,
+      "buggy_interleavings_stdev": 0.0,
+      "any_capped": false
+    },
+    "reorder_4_Serial": {
+      "program": "reorder_4",
+      "scheduler": "Serial",
+      "runs": [
+        {
+          "log": "reorder_4-Serial-rep1.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 384,
+          "capped": false,
+          "buggy_interleavings": 90,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 90
+          },
+          "first_error_schedule": 47,
+          "first_bug_by_type": {
+            "assertion": 47
+          },
+          "rep": 1,
+          "saved_error_files": 90
+        },
+        {
+          "log": "reorder_4-Serial-rep2.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 384,
+          "capped": false,
+          "buggy_interleavings": 90,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 90
+          },
+          "first_error_schedule": 47,
+          "first_bug_by_type": {
+            "assertion": 47
+          },
+          "rep": 2,
+          "saved_error_files": 90
+        },
+        {
+          "log": "reorder_4-Serial-rep3.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 384,
+          "capped": false,
+          "buggy_interleavings": 90,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 90
+          },
+          "first_error_schedule": 47,
+          "first_bug_by_type": {
+            "assertion": 47
+          },
+          "rep": 3,
+          "saved_error_files": 90
+        }
+      ],
+      "bug_found_count": 3,
+      "schedules_mean": 384.0,
+      "schedules_stdev": 0.0,
+      "first_error_mean": 47.0,
+      "first_error_stdev": 0.0,
+      "buggy_interleavings_mean": 90.0,
+      "buggy_interleavings_stdev": 0.0,
+      "any_capped": false
+    },
+    "reorder_5_PERIOD": {
+      "program": "reorder_5",
+      "scheduler": "PERIOD",
+      "runs": [
+        {
+          "log": "reorder_5-PERIOD-rep1.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 225,
+          "capped": false,
+          "buggy_interleavings": 20,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 20
+          },
+          "first_error_schedule": 12,
+          "first_bug_by_type": {
+            "assertion": 12
+          },
+          "rep": 1,
+          "saved_error_files": 20
+        },
+        {
+          "log": "reorder_5-PERIOD-rep2.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 225,
+          "capped": false,
+          "buggy_interleavings": 20,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 20
+          },
+          "first_error_schedule": 12,
+          "first_bug_by_type": {
+            "assertion": 12
+          },
+          "rep": 2,
+          "saved_error_files": 20
+        },
+        {
+          "log": "reorder_5-PERIOD-rep3.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 225,
+          "capped": false,
+          "buggy_interleavings": 20,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 20
+          },
+          "first_error_schedule": 12,
+          "first_bug_by_type": {
+            "assertion": 12
+          },
+          "rep": 3,
+          "saved_error_files": 20
+        }
+      ],
+      "bug_found_count": 3,
+      "schedules_mean": 225.0,
+      "schedules_stdev": 0.0,
+      "first_error_mean": 12.0,
+      "first_error_stdev": 0.0,
+      "buggy_interleavings_mean": 20.0,
+      "buggy_interleavings_stdev": 0.0,
+      "any_capped": false
+    },
+    "reorder_5_Serial": {
+      "program": "reorder_5",
+      "scheduler": "Serial",
+      "runs": [
+        {
+          "log": "reorder_5-Serial-rep1.log",
+          "completed": false,
+          "exit_code": 124,
+          "schedules": 4147,
+          "capped": false,
+          "buggy_interleavings": 679,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 679
+          },
+          "first_error_schedule": 283,
+          "first_bug_by_type": {
+            "assertion": 283
+          },
+          "rep": 1,
+          "saved_error_files": 679
+        },
+        {
+          "log": "reorder_5-Serial-rep2.log",
+          "completed": false,
+          "exit_code": 124,
+          "schedules": 4518,
+          "capped": false,
+          "buggy_interleavings": 797,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 797
+          },
+          "first_error_schedule": 283,
+          "first_bug_by_type": {
+            "assertion": 283
+          },
+          "rep": 2,
+          "saved_error_files": 797
+        },
+        {
+          "log": "reorder_5-Serial-rep3.log",
+          "completed": true,
+          "exit_code": 0,
+          "schedules": 5040,
+          "capped": false,
+          "buggy_interleavings": 816,
+          "timeouts": 0,
+          "bug_found": true,
+          "bug_types": {
+            "assertion": 816
+          },
+          "first_error_schedule": 283,
+          "first_bug_by_type": {
+            "assertion": 283
+          },
+          "rep": 3,
+          "saved_error_files": 816
+        }
+      ],
+      "bug_found_count": 3,
+      "schedules_mean": 4568.33,
+      "schedules_stdev": 448.62,
+      "first_error_mean": 283.0,
+      "first_error_stdev": 0.0,
+      "buggy_interleavings_mean": 764.0,
+      "buggy_interleavings_stdev": 74.22,
+      "any_capped": false
+    }
+  }
+}

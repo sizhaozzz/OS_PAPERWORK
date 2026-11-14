@@ -1,0 +1,4 @@
+[[4, 0], [5, 0], [3, 0], [0, 2], [1, 0]]
+sudo: unable to resolve host a760a20d53fa: Resource temporarily unavailable
+Bug found!
+reorder_5_bad: reorder_bad.c:80: void *checkThread(void *): Assertion `0' failed.

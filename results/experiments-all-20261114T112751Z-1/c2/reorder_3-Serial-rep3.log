@@ -1,0 +1,12 @@
+opts: [('-y', ''), ('-d', '3'), ('--runs', '10000')]
+args: ['./reorder_3_bad']
+bugDepth: 3
+runs_limit: 10000
+
+
+[4;36mPerform Dry Run![0m
+sudo: unable to resolve host cfd1ab1422d4: Resource temporarily unavailable
+timeout: the monitored command dumped core
+/repro/scripts/run_claims.sh: line 129: 24494 Segmentation fault      timeout --kill-after=10 "$CASE_TIMEOUT" python3 -u "$runner_script" -y -d "$depth" --runs="$RUNS_LIMIT" "./$binary"
+
+EXIT_CODE=139

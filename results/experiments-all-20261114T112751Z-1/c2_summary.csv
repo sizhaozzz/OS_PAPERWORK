@@ -1,0 +1,9 @@
+program,scheduler,reps,bug_found_runs,first_error_mean,first_error_stdev,schedules_mean,schedules_stdev,buggy_interleavings_mean,buggy_interleavings_stdev,any_capped
+reorder_10,PERIOD,3,3,27.0,0.0,2350.0,0.0,90.33,0.58,False
+reorder_10,Serial,3,0,,,0.0,0.0,0.0,0.0,False
+reorder_3,PERIOD,3,3,6.0,0.0,27.0,0.0,6.0,0.0,False
+reorder_3,Serial,3,0,,,0.0,0.0,0.0,0.0,False
+reorder_4,PERIOD,3,3,9.0,0.0,100.0,0.0,12.0,0.0,False
+reorder_4,Serial,3,0,,,0.0,0.0,0.0,0.0,False
+reorder_5,PERIOD,3,3,12.0,0.0,225.0,0.0,20.0,0.0,False
+reorder_5,Serial,3,0,,,0.0,0.0,0.0,0.0,False

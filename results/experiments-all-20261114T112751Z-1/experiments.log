@@ -1,0 +1,93 @@
+RUN_ID=experiments-all-20261114T112751Z-1
+WORK=/workdir/period-experiments.er9DsV
+CLAIM=all
+REPS=3
+RUNS_LIMIT=10000
+PASS: SCHED_DEADLINE
+=== [C1] Building CVE-2009-3547 ===
+Built CVE-2009-3547 -> binary=2009-3547
+--- [C1] Running CVE-2009-3547 (PERIOD, d=5, rep=1/3) ---
+--- [C1] Running CVE-2009-3547 (PERIOD, d=5, rep=2/3) ---
+--- [C1] Running CVE-2009-3547 (PERIOD, d=5, rep=3/3) ---
+=== [C1] Building CVE-2011-2183 ===
+Built CVE-2011-2183 -> binary=2011-2183
+--- [C1] Running CVE-2011-2183 (PERIOD, d=5, rep=1/3) ---
+--- [C1] Running CVE-2011-2183 (PERIOD, d=5, rep=2/3) ---
+--- [C1] Running CVE-2011-2183 (PERIOD, d=5, rep=3/3) ---
+=== [C1] Building CVE-2013-1792 ===
+Built CVE-2013-1792 -> binary=2013-1792
+--- [C1] Running CVE-2013-1792 (PERIOD, d=5, rep=1/3) ---
+--- [C1] Running CVE-2013-1792 (PERIOD, d=5, rep=2/3) ---
+--- [C1] Running CVE-2013-1792 (PERIOD, d=5, rep=3/3) ---
+=== [C1] Building CVE-2015-7550 ===
+Built CVE-2015-7550 -> binary=2015-7550
+--- [C1] Running CVE-2015-7550 (PERIOD, d=5, rep=1/3) ---
+--- [C1] Running CVE-2015-7550 (PERIOD, d=5, rep=2/3) ---
+--- [C1] Running CVE-2015-7550 (PERIOD, d=5, rep=3/3) ---
+=== [C1] Building CVE-2016-1972 ===
+Built CVE-2016-1972 -> binary=2016-1972
+--- [C1] Running CVE-2016-1972 (PERIOD, d=5, rep=1/3) ---
+--- [C1] Running CVE-2016-1972 (PERIOD, d=5, rep=2/3) ---
+--- [C1] Running CVE-2016-1972 (PERIOD, d=5, rep=3/3) ---
+=== [C1] Building CVE-2016-1973 ===
+Built CVE-2016-1973 -> binary=2016-1973
+--- [C1] Running CVE-2016-1973 (PERIOD, d=5, rep=1/3) ---
+--- [C1] Running CVE-2016-1973 (PERIOD, d=5, rep=2/3) ---
+--- [C1] Running CVE-2016-1973 (PERIOD, d=5, rep=3/3) ---
+=== [C1] Building CVE-2016-7911 ===
+Built CVE-2016-7911 -> binary=2016-7911
+--- [C1] Running CVE-2016-7911 (PERIOD, d=5, rep=1/3) ---
+--- [C1] Running CVE-2016-7911 (PERIOD, d=5, rep=2/3) ---
+--- [C1] Running CVE-2016-7911 (PERIOD, d=5, rep=3/3) ---
+=== [C1] Building CVE-2016-9806 ===
+Built CVE-2016-9806 -> binary=2016-9806
+--- [C1] Running CVE-2016-9806 (PERIOD, d=5, rep=1/3) ---
+--- [C1] Running CVE-2016-9806 (PERIOD, d=5, rep=2/3) ---
+--- [C1] Running CVE-2016-9806 (PERIOD, d=5, rep=3/3) ---
+=== [C1] Building CVE-2017-6346 ===
+Built CVE-2017-6346 -> binary=2017-6346
+--- [C1] Running CVE-2017-6346 (PERIOD, d=5, rep=1/3) ---
+--- [C1] Running CVE-2017-6346 (PERIOD, d=5, rep=2/3) ---
+--- [C1] Running CVE-2017-6346 (PERIOD, d=5, rep=3/3) ---
+=== [C1] Building CVE-2017-15265 ===
+Built CVE-2017-15265 -> binary=2017-15265
+--- [C1] Running CVE-2017-15265 (PERIOD, d=5, rep=1/3) ---
+--- [C1] Running CVE-2017-15265 (PERIOD, d=5, rep=2/3) ---
+--- [C1] Running CVE-2017-15265 (PERIOD, d=5, rep=3/3) ---
+=== [C2] Building reorder_3 ===
+Built reorder_3 -> binary=reorder_3_bad
+--- [C2] Running reorder_3 (PERIOD, d=3, rep=1/3) ---
+--- [C2] Running reorder_3 (PERIOD, d=3, rep=2/3) ---
+--- [C2] Running reorder_3 (PERIOD, d=3, rep=3/3) ---
+--- [C2] Running reorder_3 (Serial, d=3, rep=1/3) ---
+--- [C2] Running reorder_3 (Serial, d=3, rep=2/3) ---
+--- [C2] Running reorder_3 (Serial, d=3, rep=3/3) ---
+=== [C2] Building reorder_4 ===
+Built reorder_4 -> binary=reorder_4_bad
+--- [C2] Running reorder_4 (PERIOD, d=3, rep=1/3) ---
+--- [C2] Running reorder_4 (PERIOD, d=3, rep=2/3) ---
+--- [C2] Running reorder_4 (PERIOD, d=3, rep=3/3) ---
+--- [C2] Running reorder_4 (Serial, d=3, rep=1/3) ---
+--- [C2] Running reorder_4 (Serial, d=3, rep=2/3) ---
+--- [C2] Running reorder_4 (Serial, d=3, rep=3/3) ---
+=== [C2] Building reorder_5 ===
+Built reorder_5 -> binary=reorder_5_bad
+--- [C2] Running reorder_5 (PERIOD, d=3, rep=1/3) ---
+--- [C2] Running reorder_5 (PERIOD, d=3, rep=2/3) ---
+--- [C2] Running reorder_5 (PERIOD, d=3, rep=3/3) ---
+--- [C2] Running reorder_5 (Serial, d=3, rep=1/3) ---
+--- [C2] Running reorder_5 (Serial, d=3, rep=2/3) ---
+--- [C2] Running reorder_5 (Serial, d=3, rep=3/3) ---
+=== [C2] Building reorder_10 ===
+Built reorder_10 -> binary=reorder_10_bad
+--- [C2] Running reorder_10 (PERIOD, d=3, rep=1/3) ---
+--- [C2] Running reorder_10 (PERIOD, d=3, rep=2/3) ---
+--- [C2] Running reorder_10 (PERIOD, d=3, rep=3/3) ---
+--- [C2] Running reorder_10 (Serial, d=3, rep=1/3) ---
+--- [C2] Running reorder_10 (Serial, d=3, rep=2/3) ---
+--- [C2] Running reorder_10 (Serial, d=3, rep=3/3) ---
+{
+  "c1_programs": 10,
+  "c2_configs": 8
+}
+EXPERIMENTS_DONE=/repro/results/experiments-all-20261114T112751Z-1
