@@ -72,6 +72,43 @@ if libc.syscall(314, 0, ctypes.byref(attr), 0) != 0:
 print("PASS: SCHED_DEADLINE")
 PY
 
+# Patch a temporary copy of run_OldPDS.py to match DBDSFunction.o's uint16_t shared-memory layout
+python3 - <<PY
+from pathlib import Path
+src = Path("$ROOT_DIR/tool/DBDS/run_OldPDS.py").read_text()
+replacements = [
+    (
+        "IPC_KEY, MAP_SIZE, IPC_CREAT, IPC_EXCL = 1111, sizeof(c_ulonglong) + sizeof(c_uint)*(3+SHARE_THREAD_NUM+3*SHARE_ARRAY_SIZE), 512, 1024",
+        "IPC_KEY, MAP_SIZE, IPC_CREAT, IPC_EXCL = 1111, sizeof(c_ulonglong) + sizeof(c_uint)*3 + sizeof(c_uint16)*(SHARE_THREAD_NUM + 3*SHARE_ARRAY_SIZE), 512, 1024",
+    ),
+    (
+        "memmove(byref(kpNumArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*3, sizeof(c_uint)*SHARE_THREAD_NUM)",
+        "memmove(byref(kpNumArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*3, sizeof(c_uint16)*SHARE_THREAD_NUM)",
+    ),
+    (
+        "memmove(byref(kpYieldArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*(3+SHARE_THREAD_NUM), sizeof(c_uint)*SHARE_ARRAY_SIZE)",
+        "memmove(byref(kpYieldArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*3 + sizeof(c_uint16)*(SHARE_THREAD_NUM), sizeof(c_uint16)*(SHARE_ARRAY_SIZE))",
+    ),
+    (
+        "memmove(byref(kpLocArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*(3+SHARE_THREAD_NUM+SHARE_ARRAY_SIZE), sizeof(c_uint)*SHARE_ARRAY_SIZE)",
+        "memmove(byref(kpLocArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*3 + sizeof(c_uint16)*(SHARE_THREAD_NUM + SHARE_ARRAY_SIZE), sizeof(c_uint16)*SHARE_ARRAY_SIZE)",
+    ),
+    (
+        "memmove(byref(kpOrderArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*(3+SHARE_THREAD_NUM+2*SHARE_ARRAY_SIZE), sizeof(c_uint)*SHARE_ARRAY_SIZE)",
+        "memmove(byref(kpOrderArray), ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*3 + sizeof(c_uint16)*(SHARE_THREAD_NUM + 2*SHARE_ARRAY_SIZE), sizeof(c_uint16)*SHARE_ARRAY_SIZE)",
+    ),
+    (
+        "tmparr = (c_uint * len(tmp))(*tmp)\n    memmove(ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*(3+SHARE_THREAD_NUM), tmparr, sizeof(c_uint) * len(tmp))",
+        "tmparr = (c_uint16 * len(tmp))(*tmp)\n    memmove(ADDR + sizeof(c_ulonglong) + sizeof(c_uint)*3 + sizeof(c_uint16)*SHARE_THREAD_NUM, tmparr, sizeof(c_uint16) * len(tmp))",
+    ),
+]
+for old, new in replacements:
+    assert old in src, "Missing expected snippet: " + old
+    src = src.replace(old, new)
+Path("$work/run_OldPDS_patched.py").write_text(src)
+print("Patched run_OldPDS_patched.py successfully")
+PY
+
 build_upstream_dir() {
     local src_dir="$1"
     local dst_dir="$2"
@@ -213,7 +250,7 @@ if [[ "$CLAIM" == "all" || "$CLAIM" == "c2" ]]; then
             if [[ "$sched" == "PERIOD" ]]; then
                 runner="$ROOT_DIR/tool/DBDS/run_PDS.py"
             else
-                runner="$ROOT_DIR/tool/DBDS/run_OldPDS.py"
+                runner="$work/run_OldPDS_patched.py"
             fi
 
             for rep in $(seq 1 "$REPS"); do
