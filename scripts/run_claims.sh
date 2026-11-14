@@ -75,7 +75,7 @@ PY
 # Build a Serial (SBPSched) runner from the working run_PDS.py so uint16_t shared-memory layout matches DBDSFunction.o
 python3 - <<PY
 from pathlib import Path
-src = Path("$ROOT_DIR/tool/DBDS/run_PDS.py").read_text()
+src = Path("$ROOT_DIR/tool/DBDS/run_PDS.py").read_text(encoding="utf-8")
 src = "import sys\nsys.path.insert(0, '$ROOT_DIR/tool/DBDS')\nfrom sbp_sched import SBPSched\n" + src
 replacements = [
     ("period_limit = bugDepth + 1", "period_limit = bugDepth + N - 1"),
@@ -87,7 +87,7 @@ for old, new in replacements:
     src = src.replace(old, new)
 assert "SBPMESched" in src
 src = src.replace("SBPMESched", "SBPSched")
-Path("$work/run_OldPDS_patched.py").write_text(src)
+Path("$work/run_OldPDS_patched.py").write_text(src, encoding="utf-8")
 print("Built Serial SBPSched runner from run_PDS.py")
 PY
 
