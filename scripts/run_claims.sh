@@ -78,9 +78,15 @@ from pathlib import Path
 src = Path("$ROOT_DIR/tool/DBDS/run_PDS.py").read_text(encoding="utf-8")
 src = "import sys\nsys.path.insert(0, '$ROOT_DIR/tool/DBDS')\nfrom sbp_sched import SBPSched\n" + src
 replacements = [
-    ("kpMaxNumArray_after_DryRun = copy.deepcopy(kpMaxNumArray)\nperiod_limit = bugDepth + 1", "kpMaxNumArray_after_DryRun = copy.deepcopy(kpMaxNumArray)\nperiod_limit = bugDepth + N -1"),
+    (
+        "kpMaxNumArray_after_DryRun = copy.deepcopy(kpMaxNumArray)\nperiod_limit = bugDepth + 1",
+        "kpMaxNumArray_after_DryRun = copy.deepcopy(kpMaxNumArray)\nperiod_limit = bugDepth + N - 1",
+    ),
     ("for iterPeriod in range(2, period_limit+1):", "for iterPeriod in range(N_after_DryRun, period_limit+1):"),
     ("if VarModeFlag == 0 or iterPeriod == 2:", "if VarModeFlag == 0 or (iterPeriod - N_after_DryRun + 1 < 2):"),
+    ("if (iterPeriod == 2):", "if (iterPeriod - N_after_DryRun + 1 < 2):"),
+    ("if DBDS_stage == 1 and iterPeriod-1 >= 4 and full_deep_run == 0:", "if DBDS_stage == 1 and iterPeriod - N_after_DryRun + 1 >= 4 and full_deep_run == 0:"),
+    ("SBPMESched(tempL[2], tmpMList, iterPeriod, prefix, fix_prefix=True)", "SBPSched(tempL[2], tmpMList, iterPeriod, prefix)"),
 ]
 for old, new in replacements:
     assert old in src, "Missing expected snippet: " + old
@@ -245,6 +251,10 @@ if [[ "$CLAIM" == "all" || "$CLAIM" == "c2" ]]; then
         done
     done
 fi
+
+python3 "$repo/scripts/summarize_claims.py" "$report" "$work" "$RUNS_LIMIT"
+git -C "$ROOT_DIR" status --short > "$report/upstream-status-after.txt"
+echo "EXPERIMENTS_DONE=$report"
 
 python3 "$repo/scripts/summarize_claims.py" "$report" "$work" "$RUNS_LIMIT"
 git -C "$ROOT_DIR" status --short > "$report/upstream-status-after.txt"
