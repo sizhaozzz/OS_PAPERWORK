@@ -78,7 +78,7 @@ from pathlib import Path
 src = Path("$ROOT_DIR/tool/DBDS/run_PDS.py").read_text(encoding="utf-8")
 src = "import sys\nsys.path.insert(0, '$ROOT_DIR/tool/DBDS')\nfrom sbp_sched import SBPSched\n" + src
 replacements = [
-    ("period_limit = bugDepth + 1", "period_limit = bugDepth + N - 1"),
+    ("kpMaxNumArray_after_DryRun = copy.deepcopy(kpMaxNumArray)\nperiod_limit = bugDepth + 1", "kpMaxNumArray_after_DryRun = copy.deepcopy(kpMaxNumArray)\nperiod_limit = bugDepth + N -1"),
     ("for iterPeriod in range(2, period_limit+1):", "for iterPeriod in range(N_after_DryRun, period_limit+1):"),
     ("if VarModeFlag == 0 or iterPeriod == 2:", "if VarModeFlag == 0 or (iterPeriod - N_after_DryRun + 1 < 2):"),
 ]
