@@ -8,6 +8,30 @@ import sys
 from pathlib import Path
 
 from summarize import CASES, parse_log, require
+from summarize_claims import parse_experiment_log
+
+
+def verify_experiment_report(report):
+    summary = json.loads((report / "summary.json").read_text())
+    require("PASS: SCHED_DEADLINE" in (report / "experiments.log").read_text(),
+            report.name + ": scheduler probe missing")
+    require(not (report / "upstream-status-after.txt").read_text().strip(),
+            report.name + ": upstream checkout changed")
+    c1_count = 0
+    for cve, data in sorted(summary.get("c1", {}).items()):
+        for run in data["runs"]:
+            parsed = parse_experiment_log(report / "c1" / run["log"], 10000)
+            require(parsed["schedules"] == run["schedules"],
+                    report.name + ": schedule count mismatch in " + run["log"])
+            c1_count += 1
+    c2_count = 0
+    for key, data in sorted(summary.get("c2", {}).items()):
+        for run in data["runs"]:
+            parsed = parse_experiment_log(report / "c2" / run["log"], 10000)
+            require(parsed["schedules"] == run["schedules"],
+                    report.name + ": schedule count mismatch in " + run["log"])
+            c2_count += 1
+    print("{} : verified {} C1 runs and {} C2 runs".format(report.name, c1_count, c2_count))
 
 
 def main():
@@ -16,8 +40,13 @@ def main():
     args = parser.parse_args()
     repo = Path(__file__).resolve().parents[1]
     rows = []
+    exp_reports = 0
     for path in sorted((repo / "results").glob("*/summary.json")):
         report = path.parent
+        if report.name.startswith("experiments-"):
+            verify_experiment_report(report)
+            exp_reports += 1
+            continue
         summary = json.loads(path.read_text())
         require("PASS: SCHED_DEADLINE" in (report / "validation.log").read_text(),
                 report.name + ": scheduler probe missing")
@@ -67,7 +96,7 @@ def main():
             writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator="\n")
             writer.writeheader()
             writer.writerows(rows)
-    print("PASS: {} workload runs, source hashes, counters, schedules and replay logs".format(len(rows)))
+    print("PASS: {} validation runs and {} experiment bundles verified".format(len(rows), exp_reports))
 
 
 if __name__ == "__main__":
