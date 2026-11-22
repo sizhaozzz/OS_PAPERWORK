@@ -186,3 +186,46 @@ On Linux use `python3 -B scripts/verify-results.py`. Adding `--write-index` rege
 [1] C. Wen, M. He, B. Wu, Z. Xu and S. Qin. *Controlled Concurrency Testing via Periodical Scheduling*. ICSE 2022. DOI: `10.1145/3510003.3510178`. Claims: Tables 1 and 2; motivating example: Figure 1; original setup: Section 4.1.3.
 
 [2] PERIOD authors. [Source repository and artifact instructions](https://github.com/wcventure/PERIOD). Starting commit and image digest are recorded in Section 2.1.
+
+## 6 Reproduction tooling and quick start
+
+The scientific environment is pinned in the authors' Docker image (digest in
+Section 2.1). From the repository root on an x86_64 Linux/WSL2 host with Docker:
+
+```bash
+make setup        # preflight: Docker, x86_64, pinned commit, SCHED_DEADLINE probe
+make validate     # environment validation (doubleFree + CVE-2016-1972)
+make experiments  # main experiments C1 and C2 (3 repetitions)
+make figures      # regenerate SVG charts from archived CSVs (no Docker needed)
+make verify       # verify all archived logs and rebuild results/summary.csv
+```
+
+`Dockerfile` layers these scripts onto the pinned image for an alternative
+self-contained build. `make clean` removes local Python caches. No build outputs,
+traces or credentials are tracked (`.gitignore`); text files use LF endings
+(`.gitattributes`).
+
+## 7 Extension
+
+An additional controlled experiment, **PERIOD's sensitivity to the bug-depth
+bound**, is provided under [`docs/EXTENSION.md`](docs/EXTENSION.md). It varies a
+single factor (`d` = 2, 3, 4, 5) on a fixed workload (`reorder_5`) and scheduler,
+and tests the paper's claim that the period bound is the key trade-off knob. Run
+it with `make extension`; results are archived under a new
+`results/extension-reorder_5-<timestamp>/` bundle. The experiment has been
+**executed**: the real run found the bug in all 12 trials, at 41 schedules for
+`d=2` and 225 for `d>=3` (the result saturates above the bug's effective depth),
+with the full measurement table and interpretation in `docs/EXTENSION.md`.
+
+## 8 Figures and further analysis
+
+Generated charts (from the archived CSVs, `python3 -B scripts/make_figures.py`):
+
+- ![C1: schedules to first error](figures/fig1_c1_first_error.svg)
+- ![C2: PERIOD vs Serial schedules](figures/fig2_c2_schedules.svg)
+- ![C2: schedule-space reduction](figures/fig3_c2_reduction.svg)
+- ![Extension: first error vs depth bound](figures/fig4_extension_depth.svg)
+
+The Paper-vs-Ours tables, quantified discrepancies, limitations, and the
+contribution / AI-usage statements are in
+[`docs/RESULTS_ANALYSIS.md`](docs/RESULTS_ANALYSIS.md).

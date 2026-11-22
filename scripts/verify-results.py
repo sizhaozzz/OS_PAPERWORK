@@ -34,6 +34,27 @@ def verify_experiment_report(report):
     print("{} : verified {} C1 runs and {} C2 runs".format(report.name, c1_count, c2_count))
 
 
+def verify_extension_report(report):
+    """Cross-check archived per-depth logs against extension_summary.json."""
+    detail = json.loads((report / "extension_summary.json").read_text())
+    require("PASS: SCHED_DEADLINE" in (report / "extension.log").read_text(),
+            report.name + ": scheduler probe missing")
+    require(not (report / "upstream-status-after.txt").read_text().strip(),
+            report.name + ": upstream checkout changed")
+    count = 0
+    for depth, entry in sorted(detail.items(), key=lambda kv: int(kv[0])):
+        for run in entry["runs"]:
+            log = report / "extension" / "reorder_5-d{}-rep{}.log".format(depth, run["rep"])
+            parsed = parse_experiment_log(log, 10000)
+            require(parsed["schedules"] == run["schedules"],
+                    report.name + ": schedule count mismatch in " + log.name)
+            require(parsed["buggy_interleavings"] == run["buggy_interleavings"],
+                    report.name + ": buggy-interleaving mismatch in " + log.name)
+            count += 1
+    print("{} : verified {} extension runs across {} depth points".format(
+        report.name, count, len(detail)))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--write-index", action="store_true")
@@ -41,6 +62,7 @@ def main():
     repo = Path(__file__).resolve().parents[1]
     rows = []
     exp_reports = 0
+    ext_reports = 0
     for path in sorted((repo / "results").glob("*/summary.json")):
         report = path.parent
         if report.name.startswith("experiments-"):
@@ -91,12 +113,17 @@ def main():
             print("{} / {}: {} schedules, {} buggy, 0 timeouts".format(
                 report.name, label, values["schedules"], values["buggy_interleavings"]))
     require(rows, "No completed results found")
+    for report in sorted((repo / "results").glob("extension-*/")):
+        if (report / "extension_summary.json").is_file():
+            verify_extension_report(report)
+            ext_reports += 1
     if args.write_index:
         with (repo / "results" / "summary.csv").open("w", newline="") as stream:
             writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator="\n")
             writer.writeheader()
             writer.writerows(rows)
-    print("PASS: {} validation runs and {} experiment bundles verified".format(len(rows), exp_reports))
+    print("PASS: {} validation runs, {} experiment bundles and {} extension bundles verified".format(
+        len(rows), exp_reports, ext_reports))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,23 @@
+RUN_ID=extension-reorder_5-20261122T060242Z-1
+PROGRAM=reorder_5
+DEPTHS=2 3 4 5
+REPS=3
+RUNS_LIMIT=10000
+PASS: SCHED_DEADLINE
+Built reorder_5 -> binary=reorder_5_bad
+--- [EXT] reorder_5 d=2 rep=1/3 ---
+--- [EXT] reorder_5 d=2 rep=2/3 ---
+--- [EXT] reorder_5 d=2 rep=3/3 ---
+--- [EXT] reorder_5 d=3 rep=1/3 ---
+--- [EXT] reorder_5 d=3 rep=2/3 ---
+--- [EXT] reorder_5 d=3 rep=3/3 ---
+--- [EXT] reorder_5 d=4 rep=1/3 ---
+--- [EXT] reorder_5 d=4 rep=2/3 ---
+--- [EXT] reorder_5 d=4 rep=3/3 ---
+--- [EXT] reorder_5 d=5 rep=1/3 ---
+--- [EXT] reorder_5 d=5 rep=2/3 ---
+--- [EXT] reorder_5 d=5 rep=3/3 ---
+{
+  "depth_points": 4
+}
+EXTENSION_DONE=/repro/results/extension-reorder_5-20261122T060242Z-1

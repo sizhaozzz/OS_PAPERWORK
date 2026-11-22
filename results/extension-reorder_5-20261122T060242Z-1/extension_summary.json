@@ -1,0 +1,246 @@
+{
+  "2": {
+    "runs": [
+      {
+        "log": "reorder_5-d2-rep1.log",
+        "completed": true,
+        "exit_code": 0,
+        "schedules": 41,
+        "capped": false,
+        "buggy_interleavings": 4,
+        "timeouts": 0,
+        "bug_found": true,
+        "bug_types": {
+          "assertion": 4
+        },
+        "first_error_schedule": 12,
+        "first_bug_by_type": {
+          "assertion": 12
+        },
+        "rep": 1,
+        "depth": 2
+      },
+      {
+        "log": "reorder_5-d2-rep2.log",
+        "completed": true,
+        "exit_code": 0,
+        "schedules": 41,
+        "capped": false,
+        "buggy_interleavings": 4,
+        "timeouts": 0,
+        "bug_found": true,
+        "bug_types": {
+          "assertion": 4
+        },
+        "first_error_schedule": 12,
+        "first_bug_by_type": {
+          "assertion": 12
+        },
+        "rep": 2,
+        "depth": 2
+      },
+      {
+        "log": "reorder_5-d2-rep3.log",
+        "completed": true,
+        "exit_code": 0,
+        "schedules": 41,
+        "capped": false,
+        "buggy_interleavings": 4,
+        "timeouts": 0,
+        "bug_found": true,
+        "bug_types": {
+          "assertion": 4
+        },
+        "first_error_schedule": 12,
+        "first_bug_by_type": {
+          "assertion": 12
+        },
+        "rep": 3,
+        "depth": 2
+      }
+    ]
+  },
+  "3": {
+    "runs": [
+      {
+        "log": "reorder_5-d3-rep1.log",
+        "completed": true,
+        "exit_code": 0,
+        "schedules": 225,
+        "capped": false,
+        "buggy_interleavings": 20,
+        "timeouts": 0,
+        "bug_found": true,
+        "bug_types": {
+          "assertion": 20
+        },
+        "first_error_schedule": 12,
+        "first_bug_by_type": {
+          "assertion": 12
+        },
+        "rep": 1,
+        "depth": 3
+      },
+      {
+        "log": "reorder_5-d3-rep2.log",
+        "completed": true,
+        "exit_code": 0,
+        "schedules": 225,
+        "capped": false,
+        "buggy_interleavings": 20,
+        "timeouts": 0,
+        "bug_found": true,
+        "bug_types": {
+          "assertion": 20
+        },
+        "first_error_schedule": 12,
+        "first_bug_by_type": {
+          "assertion": 12
+        },
+        "rep": 2,
+        "depth": 3
+      },
+      {
+        "log": "reorder_5-d3-rep3.log",
+        "completed": true,
+        "exit_code": 0,
+        "schedules": 225,
+        "capped": false,
+        "buggy_interleavings": 20,
+        "timeouts": 0,
+        "bug_found": true,
+        "bug_types": {
+          "assertion": 20
+        },
+        "first_error_schedule": 12,
+        "first_bug_by_type": {
+          "assertion": 12
+        },
+        "rep": 3,
+        "depth": 3
+      }
+    ]
+  },
+  "4": {
+    "runs": [
+      {
+        "log": "reorder_5-d4-rep1.log",
+        "completed": true,
+        "exit_code": 0,
+        "schedules": 225,
+        "capped": false,
+        "buggy_interleavings": 20,
+        "timeouts": 0,
+        "bug_found": true,
+        "bug_types": {
+          "assertion": 20
+        },
+        "first_error_schedule": 12,
+        "first_bug_by_type": {
+          "assertion": 12
+        },
+        "rep": 1,
+        "depth": 4
+      },
+      {
+        "log": "reorder_5-d4-rep2.log",
+        "completed": true,
+        "exit_code": 0,
+        "schedules": 225,
+        "capped": false,
+        "buggy_interleavings": 20,
+        "timeouts": 0,
+        "bug_found": true,
+        "bug_types": {
+          "assertion": 20
+        },
+        "first_error_schedule": 12,
+        "first_bug_by_type": {
+          "assertion": 12
+        },
+        "rep": 2,
+        "depth": 4
+      },
+      {
+        "log": "reorder_5-d4-rep3.log",
+        "completed": true,
+        "exit_code": 0,
+        "schedules": 225,
+        "capped": false,
+        "buggy_interleavings": 20,
+        "timeouts": 0,
+        "bug_found": true,
+        "bug_types": {
+          "assertion": 20
+        },
+        "first_error_schedule": 12,
+        "first_bug_by_type": {
+          "assertion": 12
+        },
+        "rep": 3,
+        "depth": 4
+      }
+    ]
+  },
+  "5": {
+    "runs": [
+      {
+        "log": "reorder_5-d5-rep1.log",
+        "completed": true,
+        "exit_code": 0,
+        "schedules": 225,
+        "capped": false,
+        "buggy_interleavings": 20,
+        "timeouts": 0,
+        "bug_found": true,
+        "bug_types": {
+          "assertion": 20
+        },
+        "first_error_schedule": 12,
+        "first_bug_by_type": {
+          "assertion": 12
+        },
+        "rep": 1,
+        "depth": 5
+      },
+      {
+        "log": "reorder_5-d5-rep2.log",
+        "completed": true,
+        "exit_code": 0,
+        "schedules": 225,
+        "capped": false,
+        "buggy_interleavings": 20,
+        "timeouts": 0,
+        "bug_found": true,
+        "bug_types": {
+          "assertion": 20
+        },
+        "first_error_schedule": 12,
+        "first_bug_by_type": {
+          "assertion": 12
+        },
+        "rep": 2,
+        "depth": 5
+      },
+      {
+        "log": "reorder_5-d5-rep3.log",
+        "completed": true,
+        "exit_code": 0,
+        "schedules": 225,
+        "capped": false,
+        "buggy_interleavings": 20,
+        "timeouts": 0,
+        "bug_found": true,
+        "bug_types": {
+          "assertion": 20
+        },
+        "first_error_schedule": 12,
+        "first_bug_by_type": {
+          "assertion": 12
+        },
+        "rep": 3,
+        "depth": 5
+      }
+    ]
+  }
+}

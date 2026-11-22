@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420" font-family="Helvetica, Arial, sans-serif"><rect width="100%" height="100%" fill="#ffffff"/><title>C2: schedule-space reduction</title>
+<text x="70" y="28" font-size="17" font-weight="600" fill="#1f2933">C2: schedule-space reduction from parallel last period</text>
+<text x="70" y="46" font-size="11" fill="#52606d">1 - PERIOD/Serial; reorder_10 uses the capped Serial value (lower bound)</text>
+<line x1="70" y1="354.0" x2="736" y2="354.0" stroke="#d9e2ec"/>
+<text x="62" y="358.0" font-size="11" fill="#52606d" text-anchor="end">0%</text>
+<line x1="70" y1="297.2" x2="736" y2="297.2" stroke="#d9e2ec"/>
+<text x="62" y="301.2" font-size="11" fill="#52606d" text-anchor="end">20%</text>
+<line x1="70" y1="240.4" x2="736" y2="240.4" stroke="#d9e2ec"/>
+<text x="62" y="244.4" font-size="11" fill="#52606d" text-anchor="end">40%</text>
+<line x1="70" y1="183.6" x2="736" y2="183.6" stroke="#d9e2ec"/>
+<text x="62" y="187.6" font-size="11" fill="#52606d" text-anchor="end">60%</text>
+<line x1="70" y1="126.8" x2="736" y2="126.8" stroke="#d9e2ec"/>
+<text x="62" y="130.8" font-size="11" fill="#52606d" text-anchor="end">80%</text>
+<line x1="70" y1="70.0" x2="736" y2="70.0" stroke="#d9e2ec"/>
+<text x="62" y="74.0" font-size="11" fill="#52606d" text-anchor="end">100%</text>
+<rect x="118.2" y="325.6" width="70.0" height="28.4" rx="2" fill="#0f6e56"/>
+<text x="153.2" y="319.6" font-size="11" fill="#1f2933" text-anchor="middle">10.0%</text>
+<text x="153.2" y="374" font-size="12" fill="#1f2933" text-anchor="middle">reorder_3</text>
+<rect x="284.8" y="144.0" width="70.0" height="210.0" rx="2" fill="#0f6e56"/>
+<text x="319.8" y="138.0" font-size="11" fill="#1f2933" text-anchor="middle">74.0%</text>
+<text x="319.8" y="374" font-size="12" fill="#1f2933" text-anchor="middle">reorder_4</text>
+<rect x="451.2" y="84.0" width="70.0" height="270.0" rx="2" fill="#0f6e56"/>
+<text x="486.2" y="78.0" font-size="11" fill="#1f2933" text-anchor="middle">95.1%</text>
+<text x="486.2" y="374" font-size="12" fill="#1f2933" text-anchor="middle">reorder_5</text>
+<rect x="617.8" y="136.7" width="70.0" height="217.3" rx="2" fill="#0f6e56"/>
+<text x="652.8" y="130.7" font-size="11" fill="#1f2933" text-anchor="middle">76.5%</text>
+<text x="652.8" y="374" font-size="12" fill="#1f2933" text-anchor="middle">reorder_10</text>
+</svg>

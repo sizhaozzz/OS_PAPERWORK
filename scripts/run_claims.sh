@@ -255,7 +255,3 @@ fi
 python3 "$repo/scripts/summarize_claims.py" "$report" "$work" "$RUNS_LIMIT"
 git -C "$ROOT_DIR" status --short > "$report/upstream-status-after.txt"
 echo "EXPERIMENTS_DONE=$report"
-
-python3 "$repo/scripts/summarize_claims.py" "$report" "$work" "$RUNS_LIMIT"
-git -C "$ROOT_DIR" status --short > "$report/upstream-status-after.txt"
-echo "EXPERIMENTS_DONE=$report"
