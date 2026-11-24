@@ -109,13 +109,3 @@ a longer timeout in a follow-up run.
 
 Each member must also make substantive commits from their own GitHub account,
 and every commit message must include the member's student ID and full name.
-
-## 5. AI usage statement (template - review and adjust to the facts)
-
-> Generative AI tools (WorkBuddy, powered by Tencent Hunyuan Hy) were used to
-> assist with summarising the paper, preparing reproduction scripts (environment
-> setup, result summarisation, figure generation and the extension harness), and
-> drafting analysis documentation. The experiments were executed and the results
-> inspected and verified by the group members. All reported numbers were traced
-> back to the archived logs in this repository. The group takes full
-> responsibility for the content of this report.
