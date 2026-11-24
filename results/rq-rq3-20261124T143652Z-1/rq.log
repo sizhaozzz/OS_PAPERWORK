@@ -1,0 +1,23 @@
+RUN_ID=rq-rq3-20261124T143652Z-1
+SUITE=rq3
+REPS=1
+RUNS_LIMIT=5000
+CASE_TIMEOUT=240
+WORK=/workdir/period-rq.j9bS4b
+PASS: SCHED_DEADLINE
+=== RQ3: hyperparameter sensitivity (bug depth d x period bound) ===
+Patched runner written to /workdir/period-rq.j9bS4b/run_PDS_period.py
+--- [RQ3] reorder_5 d=2 period=2 rep=1 ---
+--- [RQ3] reorder_5 d=2 period=3 rep=1 ---
+--- [RQ3] reorder_5 d=2 period=4 rep=1 ---
+--- [RQ3] reorder_5 d=2 period=5 rep=1 ---
+--- [RQ3] reorder_5 d=3 period=2 rep=1 ---
+--- [RQ3] reorder_5 d=3 period=3 rep=1 ---
+--- [RQ3] reorder_5 d=3 period=4 rep=1 ---
+--- [RQ3] reorder_5 d=3 period=5 rep=1 ---
+{
+  "rq2_programs": 0,
+  "rq3_configs": 8,
+  "rq4_configs": 0
+}
+RQ_SUITE_DONE=/repro/results/rq-rq3-20261124T143652Z-1

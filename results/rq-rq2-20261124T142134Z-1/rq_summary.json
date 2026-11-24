@@ -1,0 +1,95 @@
+{
+  "rq2": [
+    {
+      "program": "account",
+      "reps": 1,
+      "bug_found_runs": 1,
+      "first_error_mean": 5.0,
+      "first_error_stdev": 0.0,
+      "schedules_mean": 65.0,
+      "schedules_stdev": 0.0,
+      "buggy_interleavings_mean": 27.0,
+      "any_capped": false
+    },
+    {
+      "program": "bluetooth_driver",
+      "reps": 1,
+      "bug_found_runs": 1,
+      "first_error_mean": 9.0,
+      "first_error_stdev": 0.0,
+      "schedules_mean": 205.0,
+      "schedules_stdev": 0.0,
+      "buggy_interleavings_mean": 7.0,
+      "any_capped": false
+    },
+    {
+      "program": "carter01",
+      "reps": 1,
+      "bug_found_runs": 1,
+      "first_error_mean": "",
+      "first_error_stdev": "",
+      "schedules_mean": 42.0,
+      "schedules_stdev": 0.0,
+      "buggy_interleavings_mean": "",
+      "any_capped": false
+    },
+    {
+      "program": "circular_buffer",
+      "reps": 1,
+      "bug_found_runs": 1,
+      "first_error_mean": 17.0,
+      "first_error_stdev": 0.0,
+      "schedules_mean": 546.0,
+      "schedules_stdev": 0.0,
+      "buggy_interleavings_mean": 57.0,
+      "any_capped": false
+    },
+    {
+      "program": "deadlock01",
+      "reps": 1,
+      "bug_found_runs": 1,
+      "first_error_mean": "",
+      "first_error_stdev": "",
+      "schedules_mean": 14.0,
+      "schedules_stdev": 0.0,
+      "buggy_interleavings_mean": "",
+      "any_capped": false
+    },
+    {
+      "program": "lazy01",
+      "reps": 1,
+      "bug_found_runs": 1,
+      "first_error_mean": 5.0,
+      "first_error_stdev": 0.0,
+      "schedules_mean": 39.0,
+      "schedules_stdev": 0.0,
+      "buggy_interleavings_mean": 13.0,
+      "any_capped": false
+    },
+    {
+      "program": "queue",
+      "reps": 1,
+      "bug_found_runs": 1,
+      "first_error_mean": 25.0,
+      "first_error_stdev": 0.0,
+      "schedules_mean": 833.0,
+      "schedules_stdev": 0.0,
+      "buggy_interleavings_mean": 64.0,
+      "any_capped": false
+    },
+    {
+      "program": "stack",
+      "reps": 1,
+      "bug_found_runs": 1,
+      "first_error_mean": 8.0,
+      "first_error_stdev": 0.0,
+      "schedules_mean": 918.0,
+      "schedules_stdev": 0.0,
+      "buggy_interleavings_mean": 95.0,
+      "any_capped": false
+    }
+  ],
+  "rq3": [],
+  "scalability": [],
+  "security": []
+}

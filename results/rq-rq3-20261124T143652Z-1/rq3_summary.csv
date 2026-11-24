@@ -1,0 +1,9 @@
+program,bug_depth_d,period_bound,reps,bug_found_runs,first_error_mean,schedules_mean,buggy_interleavings_mean,any_capped
+reorder_5,2,2,1,0,,5.0,,False
+reorder_5,2,3,1,1,12.0,41.0,4.0,False
+reorder_5,2,4,1,1,12.0,225.0,20.0,False
+reorder_5,2,5,1,1,12.0,225.0,20.0,False
+reorder_5,3,2,1,0,,5.0,,False
+reorder_5,3,3,1,1,12.0,41.0,4.0,False
+reorder_5,3,4,1,1,12.0,225.0,20.0,False
+reorder_5,3,5,1,1,12.0,225.0,20.0,False

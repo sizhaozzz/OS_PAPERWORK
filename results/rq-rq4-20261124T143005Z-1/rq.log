@@ -1,0 +1,45 @@
+RUN_ID=rq-rq4-20261124T143005Z-1
+SUITE=rq4
+REPS=1
+RUNS_LIMIT=5000
+CASE_TIMEOUT=240
+WORK=/workdir/period-rq.5kqCBF
+PASS: SCHED_DEADLINE
+=== RQ4: SCHED_DEADLINE kernel scheduling overhead ===
+--- [RQ4] threads=1 deadline=0 rep=1 ---
+--- [RQ4] threads=1 deadline=0 rep=2 ---
+--- [RQ4] threads=1 deadline=0 rep=3 ---
+--- [RQ4] threads=1 deadline=1 rep=1 ---
+--- [RQ4] threads=1 deadline=1 rep=2 ---
+--- [RQ4] threads=1 deadline=1 rep=3 ---
+--- [RQ4] threads=4 deadline=0 rep=1 ---
+--- [RQ4] threads=4 deadline=0 rep=2 ---
+--- [RQ4] threads=4 deadline=0 rep=3 ---
+--- [RQ4] threads=4 deadline=1 rep=1 ---
+--- [RQ4] threads=4 deadline=1 rep=2 ---
+--- [RQ4] threads=4 deadline=1 rep=3 ---
+--- [RQ4] threads=8 deadline=0 rep=1 ---
+--- [RQ4] threads=8 deadline=0 rep=2 ---
+--- [RQ4] threads=8 deadline=0 rep=3 ---
+--- [RQ4] threads=8 deadline=1 rep=1 ---
+--- [RQ4] threads=8 deadline=1 rep=2 ---
+--- [RQ4] threads=8 deadline=1 rep=3 ---
+threads=1 yields=20000 deadline=0 wall_sec=0.005936
+threads=1 yields=20000 deadline=0 wall_sec=0.004638
+threads=1 yields=20000 deadline=0 wall_sec=0.007243
+threads=1 yields=20000 deadline=1 wall_sec=200.124376
+threads=1 yields=20000 deadline=1 wall_sec=200.000388
+threads=1 yields=20000 deadline=1 wall_sec=200.050414
+threads=4 yields=20000 deadline=0 wall_sec=0.005966
+threads=4 yields=20000 deadline=0 wall_sec=0.006426
+threads=4 yields=20000 deadline=0 wall_sec=0.007949
+threads=4 yields=20000 deadline=1 wall_sec=200.000346
+threads=4 yields=20000 deadline=1 wall_sec=200.000392
+threads=4 yields=20000 deadline=1 wall_sec=200.001010
+threads=8 yields=20000 deadline=0 wall_sec=0.016146
+threads=8 yields=20000 deadline=0 wall_sec=0.013855
+threads=8 yields=20000 deadline=0 wall_sec=0.014275
+threads=8 yields=20000 deadline=1 wall_sec=200.001486
+threads=8 yields=20000 deadline=1 wall_sec=200.010849
+threads=8 yields=20000 deadline=1 wall_sec=200.000631
+/repro/scripts/rq_suite.sh: line 271: syntax error near unexpected token `done'

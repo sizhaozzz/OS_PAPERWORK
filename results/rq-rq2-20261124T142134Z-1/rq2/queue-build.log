@@ -1,0 +1,58 @@
++ cd /workdir/PERIOD/evaluation/CS/queue
++ [[ -f ./cleanDIR.sh ]]
++ bash ./cleanDIR.sh
++ bash ./build.sh
+Everything's fine!
++ cd /workdir/PERIOD/evaluation/CS/queue
++ ./cleanDIR.sh
++ clang -g -emit-llvm -c ./queue_bad.c -o queue_bad.bc
+./queue_bad.c:29:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+1 warning generated.
++ /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh queue_bad
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/CS/queue
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.queue_bad
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root  353 Nov 24 14:24 ConConfig.queue_bad
+-rw-r--r-- 1 root root 2.1K Nov 24 14:24 mempair.queue_bad
+-rw-r--r-- 1 root root  23K Nov 24 14:24 mempair.queue_bad.npz
+-rw-r--r-- 1 root root 3.1K Nov 24 14:24 mssa.queue_bad
+-rw-r--r-- 1 root root  12K Nov 24 14:24 queue_bad.bc
+-rw-rw-r-- 1 root root 2.1K Jan 16  2022 queue_bad.c
+-rw-r--r-- 1 root root 4.0K Nov 24 14:24 so.queue_bad
+/workdir/PERIOD/evaluation/CS/queue
++ export Con_PATH=/workdir/PERIOD/evaluation/CS/queue/ConConfig.queue_bad
++ Con_PATH=/workdir/PERIOD/evaluation/CS/queue/ConConfig.queue_bad
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast++ -g ./queue_bad.bc -o queue_bad -lpthread -ldl
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/CS/queue/ConConfig.queue_bad
+[DEBUG]
+[DEBUG] Instrumentation for queue_bad.c:33
+[DEBUG] Instrumentation for queue_bad.c:55
+[DEBUG] Instrumentation for queue_bad.c:56
+[DEBUG] Instrumentation for queue_bad.c:57
+[DEBUG] Instrumentation for queue_bad.c:59
+[DEBUG] Instrumentation for queue_bad.c:63
+[DEBUG] Instrumentation for queue_bad.c:73
+[DEBUG] Instrumentation for queue_bad.c:74
+[DEBUG] Instrumentation for queue_bad.c:75
+[DEBUG] Instrumentation for queue_bad.c:77
+[DEBUG] Instrumentation for queue_bad.c:80
+[DEBUG] Instrumentation for queue_bad.c:89
+[DEBUG] Instrumentation for queue_bad.c:92
+[DEBUG] Instrumentation for queue_bad.c:98
+[DEBUG] Instrumentation for queue_bad.c:99
+[DEBUG] Instrumentation for queue_bad.c:103
+[DEBUG] Instrumentation for queue_bad.c:104
+[DEBUG] Instrumentation for queue_bad.c:105
+[DEBUG] Instrumentation for queue_bad.c:119
+[DEBUG] Instrumentation for queue_bad.c:120
+[DEBUG] Instrumentation for queue_bad.c:122
+[DEBUG] Instrumentation for queue_bad.c:123
+[DEBUG] Instrumentation for queue_bad.c:124

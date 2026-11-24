@@ -1,0 +1,47 @@
++ cd /workdir/PERIOD/evaluation/CS/lazy01
++ [[ -f ./cleanDIR.sh ]]
++ bash ./cleanDIR.sh
++ bash ./build.sh
+Everything's fine!
++ cd /workdir/PERIOD/evaluation/CS/lazy01
++ ./cleanDIR.sh
++ clang -g -emit-llvm -c ./lazy01_bad.c -o lazy01_bad.bc
+./lazy01_bad.c:12:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+./lazy01_bad.c:20:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+./lazy01_bad.c:30:1: warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+3 warnings generated.
++ /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh lazy01_bad
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/CS/lazy01
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.lazy01_bad
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root   95 Nov 24 14:24 ConConfig.lazy01_bad
+-rw-r--r-- 1 root root 7.1K Nov 24 14:24 lazy01_bad.bc
+-rw-rw-r-- 1 root root  702 Jan 16  2022 lazy01_bad.c
+-rw-r--r-- 1 root root  552 Nov 24 14:24 mempair.lazy01_bad
+-rw-r--r-- 1 root root 6.5K Nov 24 14:24 mempair.lazy01_bad.npz
+-rw-r--r-- 1 root root  841 Nov 24 14:24 mssa.lazy01_bad
+-rw-r--r-- 1 root root  776 Nov 24 14:24 so.lazy01_bad
+/workdir/PERIOD/evaluation/CS/lazy01
++ export Con_PATH=/workdir/PERIOD/evaluation/CS/lazy01/ConConfig.lazy01_bad
++ Con_PATH=/workdir/PERIOD/evaluation/CS/lazy01/ConConfig.lazy01_bad
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast++ -g ./lazy01_bad.bc -o lazy01_bad -lpthread -ldl
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/CS/lazy01/ConConfig.lazy01_bad
+[DEBUG]
+[DEBUG] Instrumentation for lazy01_bad.c:9
+[DEBUG] Instrumentation for lazy01_bad.c:10
+[DEBUG] Instrumentation for lazy01_bad.c:17
+[DEBUG] Instrumentation for lazy01_bad.c:18
+[DEBUG] Instrumentation for lazy01_bad.c:25
+[DEBUG] Instrumentation for lazy01_bad.c:26

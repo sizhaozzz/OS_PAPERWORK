@@ -1,0 +1,46 @@
+opts: [('-y', ''), ('-d', '2'), ('--runs', '5000')]
+args: ['./reorder_5_bad']
+bugDepth: 2
+runs_limit: 5000
+
+
+[4;36mPerform Dry Run![0m
+
+[4;36mPerform DBDS Run with default system scheduling![0m
+sudo: unable to resolve host 43b3817c651e: Resource temporarily unavailable
+
+--------------------------------------
+Runtime: 6670
+ThreadNum:  5
+MaxKpNum:  2
+TupleScheduling: 0
+kpNumArray: 2 2 2 2 1 
+prefix: []
+coverage_hashID: 16
+--------------------------------------
+Enter 'debug' to view the debug information
+Consider all variables
+
+[4;36mStart Testing![0m
+PERIOD_OVERRIDE: 2
+Targeting bugs that bug depth = 1 . Iterate for 2 periods
+[4;36mtest 0001:[0m [[0, 0], [1, 1, 2, 2, 3, 3, 4]]
+[4;36mtest 0002:[0m [[1, 1], [0, 0, 2, 2, 3, 3, 4]]
+[4;36mtest 0003:[0m [[2, 2], [0, 0, 1, 1, 3, 3, 4]]
+[4;36mtest 0004:[0m [[3, 3], [0, 0, 1, 1, 2, 2, 4]]
+[4;36mtest 0005:[0m [[4], [0, 0, 1, 1, 2, 2, 3, 3]]
+[4;36mEnd Testing!
+[0m
+[1;35m
+Total Error Interleavings: 0
+Total Timeouts Interleavings: 0
+1 status found:
+	 [0]
+0 results found:
+--------------------------------------------------
+	Last New Find		Total
+Round	0			5
+Time	00:00:00.00000		00:00:00.17837
+[0m
+
+EXIT_CODE=0

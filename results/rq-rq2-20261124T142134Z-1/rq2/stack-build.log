@@ -1,0 +1,51 @@
++ cd /workdir/PERIOD/evaluation/CS/stack
++ [[ -f ./cleanDIR.sh ]]
++ bash ./cleanDIR.sh
++ bash ./build.sh
+Everything's fine!
++ cd /workdir/PERIOD/evaluation/CS/stack
++ ./cleanDIR.sh
++ clang -g -emit-llvm -c ./stack_bad.c -o stack_bad.bc
+./stack_bad.c:34:21: warning: expression result unused [-Wunused-value]
+  (top==0) ? TRUE : FALSE; 
+                    ^~~~~
+./stack_bad.c:6:18: note: expanded from macro 'FALSE'
+#define FALSE     (0) 
+                   ^
+./stack_bad.c:35:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+2 warnings generated.
++ /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh stack_bad
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/CS/stack
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.stack_bad
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root  150 Nov 24 14:25 ConConfig.stack_bad
+-rw-r--r-- 1 root root  658 Nov 24 14:25 mempair.stack_bad
+-rw-r--r-- 1 root root 8.1K Nov 24 14:25 mempair.stack_bad.npz
+-rw-r--r-- 1 root root 1.4K Nov 24 14:25 mssa.stack_bad
+-rw-r--r-- 1 root root 1.7K Nov 24 14:25 so.stack_bad
+-rw-r--r-- 1 root root 9.7K Nov 24 14:25 stack_bad.bc
+-rw-rw-r-- 1 root root 1.5K Jan 16  2022 stack_bad.c
+/workdir/PERIOD/evaluation/CS/stack
++ export Con_PATH=/workdir/PERIOD/evaluation/CS/stack/ConConfig.stack_bad
++ Con_PATH=/workdir/PERIOD/evaluation/CS/stack/ConConfig.stack_bad
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast++ -g ./stack_bad.bc -o stack_bad -lpthread -ldl
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/CS/stack/ConConfig.stack_bad
+[DEBUG]
+[DEBUG] Instrumentation for stack_bad.c:19
+[DEBUG] Instrumentation for stack_bad.c:24
+[DEBUG] Instrumentation for stack_bad.c:29
+[DEBUG] Instrumentation for stack_bad.c:39
+[DEBUG] Instrumentation for stack_bad.c:46
+[DEBUG] Instrumentation for stack_bad.c:62
+[DEBUG] Instrumentation for stack_bad.c:73
+[DEBUG] Instrumentation for stack_bad.c:75
+[DEBUG] Instrumentation for stack_bad.c:87
+[DEBUG] Instrumentation for stack_bad.c:88

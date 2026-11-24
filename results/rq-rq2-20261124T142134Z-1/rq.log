@@ -1,0 +1,31 @@
+RUN_ID=rq-rq2-20261124T142134Z-1
+SUITE=rq2
+REPS=1
+RUNS_LIMIT=5000
+CASE_TIMEOUT=240
+WORK=/workdir/period-rq.mg5qdo
+PASS: SCHED_DEADLINE
+=== RQ2: bug finding on additional SCTBench workloads ===
+--- [RQ2] Building account ---
+--- [RQ2] account PERIOD d=3 rep=1/1 ---
+--- [RQ2] Building bluetooth_driver ---
+--- [RQ2] bluetooth_driver PERIOD d=3 rep=1/1 ---
+--- [RQ2] Building carter01 ---
+--- [RQ2] carter01 PERIOD d=3 rep=1/1 ---
+--- [RQ2] Building circular_buffer ---
+--- [RQ2] circular_buffer PERIOD d=3 rep=1/1 ---
+--- [RQ2] Building deadlock01 ---
+--- [RQ2] deadlock01 PERIOD d=3 rep=1/1 ---
+--- [RQ2] Building lazy01 ---
+--- [RQ2] lazy01 PERIOD d=3 rep=1/1 ---
+--- [RQ2] Building queue ---
+--- [RQ2] queue PERIOD d=3 rep=1/1 ---
+--- [RQ2] Building stack ---
+--- [RQ2] stack PERIOD d=3 rep=1/1 ---
+{
+  "rq2_programs": 8,
+  "rq3_programs": 0,
+  "scalability_rows": 0,
+  "security_rows": 0
+}
+RQ_SUITE_DONE=/repro/results/rq-rq2-20261124T142134Z-1

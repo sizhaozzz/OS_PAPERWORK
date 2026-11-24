@@ -1,0 +1,47 @@
++ cd /workdir/PERIOD/evaluation/CS/circular_buffer
++ [[ -f ./cleanDIR.sh ]]
++ bash ./cleanDIR.sh
++ bash ./build.sh
+Everything's fine!
++ cd /workdir/PERIOD/evaluation/CS/circular_buffer
++ ./cleanDIR.sh
++ clang -g -emit-llvm -c ./circular_buffer_bad.c -o circular_buffer_bad.bc
++ /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh circular_buffer_bad
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/CS/circular_buffer
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.circular_buffer_bad
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root  400 Nov 24 14:23 ConConfig.circular_buffer_bad
+-rw-r--r-- 1 root root 9.9K Nov 24 14:23 circular_buffer_bad.bc
+-rw-rw-r-- 1 root root 1.7K Jan 16  2022 circular_buffer_bad.c
+-rw-r--r-- 1 root root 1.6K Nov 24 14:23 mempair.circular_buffer_bad
+-rw-r--r-- 1 root root  22K Nov 24 14:23 mempair.circular_buffer_bad.npz
+-rw-r--r-- 1 root root 2.6K Nov 24 14:23 mssa.circular_buffer_bad
+-rw-r--r-- 1 root root 4.0K Nov 24 14:23 so.circular_buffer_bad
+/workdir/PERIOD/evaluation/CS/circular_buffer
++ export Con_PATH=/workdir/PERIOD/evaluation/CS/circular_buffer/ConConfig.circular_buffer_bad
++ Con_PATH=/workdir/PERIOD/evaluation/CS/circular_buffer/ConConfig.circular_buffer_bad
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast++ -g ./circular_buffer_bad.bc -o circular_buffer_bad -lpthread -ldl
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/CS/circular_buffer/ConConfig.circular_buffer_bad
+[DEBUG]
+[DEBUG] Instrumentation for circular_buffer_bad.c:28
+[DEBUG] Instrumentation for circular_buffer_bad.c:30
+[DEBUG] Instrumentation for circular_buffer_bad.c:32
+[DEBUG] Instrumentation for circular_buffer_bad.c:33
+[DEBUG] Instrumentation for circular_buffer_bad.c:43
+[DEBUG] Instrumentation for circular_buffer_bad.c:45
+[DEBUG] Instrumentation for circular_buffer_bad.c:46
+[DEBUG] Instrumentation for circular_buffer_bad.c:47
+[DEBUG] Instrumentation for circular_buffer_bad.c:63
+[DEBUG] Instrumentation for circular_buffer_bad.c:64
+[DEBUG] Instrumentation for circular_buffer_bad.c:67
+[DEBUG] Instrumentation for circular_buffer_bad.c:68
+[DEBUG] Instrumentation for circular_buffer_bad.c:81
+[DEBUG] Instrumentation for circular_buffer_bad.c:82
+[DEBUG] Instrumentation for circular_buffer_bad.c:85
+[DEBUG] Instrumentation for circular_buffer_bad.c:86

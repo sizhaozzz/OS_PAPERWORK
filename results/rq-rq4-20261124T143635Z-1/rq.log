@@ -1,0 +1,38 @@
+RUN_ID=rq-rq4-20261124T143635Z-1
+SUITE=rq4
+REPS=1
+RUNS_LIMIT=5000
+CASE_TIMEOUT=240
+WORK=/workdir/period-rq.ffxO7O
+PASS: SCHED_DEADLINE
+=== RQ4: SCHED_DEADLINE kernel scheduling overhead ===
+--- [RQ4] threads=1 deadline=0 rep=1 ---
+--- [RQ4] threads=1 deadline=0 rep=2 ---
+--- [RQ4] threads=1 deadline=0 rep=3 ---
+--- [RQ4] threads=1 deadline=1 rep=1 ---
+--- [RQ4] threads=1 deadline=1 rep=2 ---
+--- [RQ4] threads=1 deadline=1 rep=3 ---
+--- [RQ4] threads=4 deadline=0 rep=1 ---
+--- [RQ4] threads=4 deadline=0 rep=2 ---
+--- [RQ4] threads=4 deadline=0 rep=3 ---
+--- [RQ4] threads=4 deadline=1 rep=1 ---
+--- [RQ4] threads=4 deadline=1 rep=2 ---
+--- [RQ4] threads=4 deadline=1 rep=3 ---
+threads=1 yields=50 deadline=0 wall_sec=0.000228
+threads=1 yields=50 deadline=0 wall_sec=0.000254
+threads=1 yields=50 deadline=0 wall_sec=0.000201
+threads=1 yields=50 deadline=1 wall_sec=1.000361
+threads=1 yields=50 deadline=1 wall_sec=1.000509
+threads=1 yields=50 deadline=1 wall_sec=1.000836
+threads=4 yields=50 deadline=0 wall_sec=0.000366
+threads=4 yields=50 deadline=0 wall_sec=0.000594
+threads=4 yields=50 deadline=0 wall_sec=0.000342
+threads=4 yields=50 deadline=1 wall_sec=1.000493
+threads=4 yields=50 deadline=1 wall_sec=1.000406
+threads=4 yields=50 deadline=1 wall_sec=1.000348
+{
+  "rq2_programs": 0,
+  "rq3_configs": 0,
+  "rq4_configs": 4
+}
+RQ_SUITE_DONE=/repro/results/rq-rq4-20261124T143635Z-1

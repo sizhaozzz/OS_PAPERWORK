@@ -1,0 +1,74 @@
+opts: [('-y', ''), ('-d', '3'), ('--runs', '5000')]
+args: ['./deadlock01_bad']
+bugDepth: 3
+runs_limit: 5000
+
+
+[4;36mPerform Dry Run![0m
+
+[4;36mPerform DBDS Run with default system scheduling![0m
+sudo: unable to resolve host 2e6f04b08379: Resource temporarily unavailable
+
+--------------------------------------
+Runtime: 4910
+ThreadNum:  2
+MaxKpNum:  3
+TupleScheduling: 0
+kpNumArray: 3 3 
+prefix: []
+coverage_hashID: 9
+--------------------------------------
+Enter 'debug' to view the debug information
+Consider all variables
+
+[4;36mStart Testing![0m
+Targeting bugs that bug depth = 1 . Iterate for 2 periods
+[4;36mtest 0001:[0m [[0, 0, 0], [1, 1, 1]]
+[4;36mtest 0002:[0m [[1, 1, 1], [0, 0, 0]]
+Targeting bugs that bug depth = 2 . Iterate for 3 periods
+[4;36mtest 0003:[0m [[0], [1, 1, 1], [0, 0]]
+sudo: unable to resolve host 2e6f04b08379: Resource temporarily unavailable
+[33m	[Timeout 5]: NO.1[0m
+[33m	under interleavings saved in out_deadlock01_bad_1/Timeouts/000001 [0m
+[4;36mtest 0004:[0m [[0, 0], [1, 1, 1], [0]]
+[4;36mtest 0005:[0m [[1], [0, 0, 0], [1, 1]]
+sudo: unable to resolve host 2e6f04b08379: Resource temporarily unavailable
+[33m	[Timeout 5]: NO.2[0m
+[33m	under interleavings saved in out_deadlock01_bad_1/Timeouts/000002 [0m
+[4;36mtest 0006:[0m [[1, 1], [0, 0, 0], [1]]
+Targeting bugs that bug depth = 3 . Iterate for 4 periods
+[4;36mtest 0007:[0m [[0], [1], [0, 0], [1, 1]]
+sudo: unable to resolve host 2e6f04b08379: Resource temporarily unavailable
+[33m	[Timeout 5]: NO.3[0m
+[33m	under interleavings saved in out_deadlock01_bad_1/Timeouts/000003 [0m
+[4;36mtest 0008:[0m [[0], [1, 1], [0, 0], [1]]
+sudo: unable to resolve host 2e6f04b08379: Resource temporarily unavailable
+[33m	[Timeout 5]: NO.4[0m
+[33m	under interleavings saved in out_deadlock01_bad_1/Timeouts/000004 [0m
+[4;36mtest 0009:[0m [[0, 0], [1], [0], [1, 1]]
+[4;36mtest 0010:[0m [[0, 0], [1, 1], [0], [1]]
+[4;36mtest 0011:[0m [[1], [0], [1, 1], [0, 0]]
+sudo: unable to resolve host 2e6f04b08379: Resource temporarily unavailable
+[33m	[Timeout 5]: NO.5[0m
+[33m	under interleavings saved in out_deadlock01_bad_1/Timeouts/000005 [0m
+[4;36mtest 0012:[0m [[1, 1], [0], [1], [0, 0]]
+[4;36mtest 0013:[0m [[1], [0, 0], [1, 1], [0]]
+sudo: unable to resolve host 2e6f04b08379: Resource temporarily unavailable
+[33m	[Timeout 5]: NO.6[0m
+[33m	under interleavings saved in out_deadlock01_bad_1/Timeouts/000006 [0m
+[4;36mtest 0014:[0m [[1, 1], [0, 0], [1], [0]]
+[4;36mEnd Testing!
+[0m
+[1;35m
+Total Error Interleavings: 0
+Total Timeouts Interleavings: 6
+1 status found:
+	 [0]
+0 results found:
+--------------------------------------------------
+	Last New Find		Total
+Round	0			14
+Time	00:00:00.00000		00:00:30.49552
+[0m
+
+EXIT_CODE=0

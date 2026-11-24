@@ -1,0 +1,5 @@
+threads,yields,sched_deadline,reps,wall_sec_mean,wall_sec_stdev,slowdown_vs_cfs
+1,50,False,3,0.000228,2.2e-05,1.0
+1,50,True,3,1.000569,0.000198,4388.461
+4,50,False,3,0.000434,0.000114,1.0
+4,50,True,3,1.000416,6e-05,2305.106

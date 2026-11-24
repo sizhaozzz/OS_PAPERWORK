@@ -1,0 +1,48 @@
++ cd /workdir/PERIOD/evaluation/CS/carter01
++ [[ -f ./cleanDIR.sh ]]
++ bash ./cleanDIR.sh
++ bash ./build.sh
+Everything's fine!
++ cd /workdir/PERIOD/evaluation/CS/carter01
++ ./cleanDIR.sh
++ clang -g -emit-llvm -c ./carter01_bad.c -o carter01_bad.bc
+./carter01_bad.c:29:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+./carter01_bad.c:31:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+2 warnings generated.
++ /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh carter01_bad
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/CS/carter01
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.carter01_bad
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root  177 Nov 24 14:22 ConConfig.carter01_bad
+-rw-r--r-- 1 root root 7.0K Nov 24 14:22 carter01_bad.bc
+-rw-rw-r-- 1 root root 1.1K Jan 16  2022 carter01_bad.c
+-rw-r--r-- 1 root root 1.2K Nov 24 14:22 mempair.carter01_bad
+-rw-r--r-- 1 root root  13K Nov 24 14:22 mempair.carter01_bad.npz
+-rw-r--r-- 1 root root 1.3K Nov 24 14:22 mssa.carter01_bad
+-rw-r--r-- 1 root root 1.7K Nov 24 14:22 so.carter01_bad
+/workdir/PERIOD/evaluation/CS/carter01
++ export Con_PATH=/workdir/PERIOD/evaluation/CS/carter01/ConConfig.carter01_bad
++ Con_PATH=/workdir/PERIOD/evaluation/CS/carter01/ConConfig.carter01_bad
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast++ -g ./carter01_bad.bc -o carter01_bad -lpthread -ldl
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/CS/carter01/ConConfig.carter01_bad
+[DEBUG]
+[DEBUG] Instrumentation for carter01_bad.c:5
+[DEBUG] Instrumentation for carter01_bad.c:6
+[DEBUG] Instrumentation for carter01_bad.c:7
+[DEBUG] Instrumentation for carter01_bad.c:10
+[DEBUG] Instrumentation for carter01_bad.c:11
+[DEBUG] Instrumentation for carter01_bad.c:17
+[DEBUG] Instrumentation for carter01_bad.c:18
+[DEBUG] Instrumentation for carter01_bad.c:19
+[DEBUG] Instrumentation for carter01_bad.c:22
+[DEBUG] Instrumentation for carter01_bad.c:23

@@ -1,0 +1,42 @@
+{
+  "rq2": [],
+  "rq3": [],
+  "rq4": [
+    {
+      "threads": 1,
+      "yields": 50,
+      "sched_deadline": false,
+      "reps": 3,
+      "wall_sec_mean": 0.000228,
+      "wall_sec_stdev": 2.2e-05,
+      "slowdown_vs_cfs": 1.0
+    },
+    {
+      "threads": 1,
+      "yields": 50,
+      "sched_deadline": true,
+      "reps": 3,
+      "wall_sec_mean": 1.000569,
+      "wall_sec_stdev": 0.000198,
+      "slowdown_vs_cfs": 4388.461
+    },
+    {
+      "threads": 4,
+      "yields": 50,
+      "sched_deadline": false,
+      "reps": 3,
+      "wall_sec_mean": 0.000434,
+      "wall_sec_stdev": 0.000114,
+      "slowdown_vs_cfs": 1.0
+    },
+    {
+      "threads": 4,
+      "yields": 50,
+      "sched_deadline": true,
+      "reps": 3,
+      "wall_sec_mean": 1.000416,
+      "wall_sec_stdev": 6e-05,
+      "slowdown_vs_cfs": 2305.106
+    }
+  ]
+}
