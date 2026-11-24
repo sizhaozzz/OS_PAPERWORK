@@ -245,10 +245,11 @@ compatibility, security, reproducibility).
 
 - **RQ1** (PDS vs Serial) is covered by C2; schedule reductions of 10%/74%/95.1%
   on reorder_3/4/5 match the paper exactly.
-- **RQ2** (bug-finding) runs PERIOD on 8 more SCTBench programs: 8/8 bugs found,
-  with 6 of 8 schedule counts identical to the paper's Table 2. PCT/IPB/Maple are
-  not shipped in the author image, so the paper's published numbers are the
-  reference (recorded deviation).
+- **RQ2** (bug-finding) runs **PERIOD only** on 8 more SCTBench programs: 8/8 bugs
+  found, with 6 of 8 schedule counts identical to the paper's Table 2. The other
+  SOTA tools (PCT/IPB/Maple) were **not run here** — that comparison is handled by
+  other group members; those binaries are also absent from the author image, so
+  the paper's published numbers are used only as an external reference.
 - **RQ3** (d x period sensitivity) sweeps `d`∈{2,3} × period∈{2,3,4,5}: period=2
   finds no bug, period=3 gives 41 schedules, period≥4 saturates at 225; `d` has
   no effect in this range.
