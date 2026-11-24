@@ -98,3 +98,37 @@ a longer timeout in a follow-up run.
   3 repetitions per depth; the saturation for `d >= 3` is specific to this
   bug's effective depth and should not be generalised to other workloads. See
   `docs/EXTENSION.md` for the full measurement table and interpretation.
+- RQ2–RQ4 (broader bug finding, d×period grid, SCHED_DEADLINE overhead) and the
+  four presentation Critical-Analysis points are reported separately in
+  `docs/RQ_ANALYSIS.md`. In particular, PCT/IPB/Maple are absent from the
+  released image, so the RQ2 comparison uses the paper's published numbers as
+  the external reference.
+
+## 4. Contribution statement (template - fill in before submission)
+
+> [Member A, student ID] contributed to [tasks].
+> [Member B, student ID] contributed to [tasks].
+> [Member C, student ID] contributed to [tasks].
+> [Member D, student ID] contributed to [tasks].
+> All members reviewed the final report and results.
+
+Each member must also make substantive commits from their own GitHub account,
+and every commit message must include the member's student ID and full name.
+
+## 5. AI usage statement (template - review and adjust to the facts)
+
+> Generative AI tools (WorkBuddy, powered by Tencent Hunyuan Hy) were used to
+> assist with summarising the paper, preparing reproduction scripts (environment
+> setup, result summarisation, figure generation and the extension harness), and
+> drafting analysis documentation. The experiments were executed and the results
+> inspected and verified by the group members. All reported numbers were traced
+> back to the archived logs in this repository. The group takes full
+> responsibility for the content of this report.
+
+## 4. Contribution statement (template - fill in before submission)
+
+> [Zhang Yutang, 1240035913] contributed to [Finished the tasks for RQ2-4 and the extension (RQ2: PERIOD only on 8 new workloads (8/8 bugs found, 6 counts match Table 2 in the paper); PCT/IPB/Maple baselines were handled by other group members)].
+> [Bao Chao, 1240026219] contributed to [Finish setting up the initial environment and implementing the other RQ2 methods].
+> [Liu Junchen, 1240036831] contributed to [Finished the code and visualization tasks for RQ1].
+> [Zhou Xu, 1240026361] contributed to [].
+> All members reviewed the final report and results.
