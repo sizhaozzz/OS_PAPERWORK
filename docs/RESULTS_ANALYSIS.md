@@ -104,28 +104,7 @@ a longer timeout in a follow-up run.
   released image, so the RQ2 comparison uses the paper's published numbers as
   the external reference.
 
-## 4. Contribution statement (template - fill in before submission)
-
-> [Member A, student ID] contributed to [tasks].
-> [Member B, student ID] contributed to [tasks].
-> [Member C, student ID] contributed to [tasks].
-> [Member D, student ID] contributed to [tasks].
-> All members reviewed the final report and results.
-
-Each member must also make substantive commits from their own GitHub account,
-and every commit message must include the member's student ID and full name.
-
-## 5. AI usage statement (template - review and adjust to the facts)
-
-> Generative AI tools (WorkBuddy, powered by Tencent Hunyuan Hy) were used to
-> assist with summarising the paper, preparing reproduction scripts (environment
-> setup, result summarisation, figure generation and the extension harness), and
-> drafting analysis documentation. The experiments were executed and the results
-> inspected and verified by the group members. All reported numbers were traced
-> back to the archived logs in this repository. The group takes full
-> responsibility for the content of this report.
-
-## 4. Contribution statement (template - fill in before submission)
+## 4. Contribution statement for every group member
 
 > [Zhang Yutang, 1240035913] contributed to [Finished the tasks for RQ2-4 and the extension (RQ2: PERIOD only on 8 new workloads (8/8 bugs found, 6 counts match Table 2 in the paper); PCT/IPB/Maple baselines were handled by other group members)].
 > [Bao Chao, 1240026219] contributed to [Finish setting up the initial environment and implementing the other RQ2 methods].
