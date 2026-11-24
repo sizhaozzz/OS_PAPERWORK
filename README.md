@@ -272,6 +272,3 @@ Generated charts (from the archived CSVs, `python3 -B scripts/make_figures.py`):
 - ![CA1: scalability by threads and cores](figures/fig7_ca_scalability.svg)
 - ![CA3: SCHED_DEADLINE privilege boundary](figures/fig8_ca_security.svg)
 
-The Paper-vs-Ours tables, quantified discrepancies, limitations, and the
-contribution / AI-usage statements are in
-[`docs/RESULTS_ANALYSIS.md`](docs/RESULTS_ANALYSIS.md).
