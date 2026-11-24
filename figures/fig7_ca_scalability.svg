@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="343" viewBox="0 0 760 343" font-family="Helvetica, Arial, sans-serif"><rect width="100%" height="100%" fill="#ffffff"/><title>CA1 scalability</title>
+<text x="190" y="26" font-size="17" font-weight="600" fill="#1f2933">CA1: scalability - schedules explored and bug found</text>
+<text x="190" y="44" font-size="11" fill="#52606d">reorder_10 on 1/4 cores timed out (~157 schedules, no bug); 16 cores reached 2350 and found it</text>
+<text x="182" y="92" font-size="11" fill="#1f2933" text-anchor="end">reorder_10 / 1 cores</text>
+<rect x="190" y="74" width="30.8" height="22" fill="#b23a2b" rx="3"/>
+<text x="226.8" y="92" font-size="11" fill="#1f2933">157 (no bug)</text>
+<text x="182" y="123" font-size="11" fill="#1f2933" text-anchor="end">reorder_10 / 1-16 cores</text>
+<rect x="190" y="105" width="460.6" height="22" fill="#0f6e56" rx="3"/>
+<text x="656.6" y="123" font-size="11" fill="#1f2933">2350</text>
+<text x="182" y="154" font-size="11" fill="#1f2933" text-anchor="end">reorder_10 / 1-4 cores</text>
+<rect x="190" y="136" width="31.2" height="22" fill="#b23a2b" rx="3"/>
+<text x="227.2" y="154" font-size="11" fill="#1f2933">159 (no bug)</text>
+<text x="182" y="185" font-size="11" fill="#1f2933" text-anchor="end">reorder_10 / all(16) cores</text>
+<rect x="190" y="167" width="460.6" height="22" fill="#0f6e56" rx="3"/>
+<text x="656.6" y="185" font-size="11" fill="#1f2933">2350</text>
+<text x="182" y="216" font-size="11" fill="#1f2933" text-anchor="end">reorder_20 / all(16) cores</text>
+<rect x="190" y="198" width="38.6" height="22" fill="#0f6e56" rx="3"/>
+<text x="234.6" y="216" font-size="11" fill="#1f2933">197</text>
+<text x="182" y="247" font-size="11" fill="#1f2933" text-anchor="end">reorder_5 / all(16) cores</text>
+<rect x="190" y="229" width="44.1" height="22" fill="#0f6e56" rx="3"/>
+<text x="240.1" y="247" font-size="11" fill="#1f2933">225</text>
+<text x="182" y="278" font-size="11" fill="#1f2933" text-anchor="end">reorder_50 / all(16) cores</text>
+<rect x="190" y="260" width="103.3" height="22" fill="#0f6e56" rx="3"/>
+<text x="299.3" y="278" font-size="11" fill="#1f2933">527</text>
+<text x="190" y="331" font-size="10" fill="#52606d">green = bug found; red = budget/timeout exhausted without a bug</text>
+</svg>

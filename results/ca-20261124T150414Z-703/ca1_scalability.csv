@@ -1,0 +1,8 @@
+program,threads,cpus,schedules,bug_found,timeouts,total_s
+reorder_10,10,0,157,False,0,
+reorder_10,10,0_15,2350,True,0,
+reorder_10,10,0_3,159,False,0,
+reorder_10,10,all(16),2350,True,0,
+reorder_20,20,all(16),197,True,0,
+reorder_5,5,all(16),225,True,0,
+reorder_50,50,all(16),527,True,0,

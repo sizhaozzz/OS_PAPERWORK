@@ -1,0 +1,4 @@
+context=unprivileged
+caps=00000000a80425fb
+cap_sys_nice_bit=0
+CAP_SYS_NICE=absent -> sched_setattr would fail with EPERM (Operation not permitted)

@@ -1,0 +1,3 @@
+context,cap_eff,cap_sys_nice_bit,sched_deadline_probe
+privileged,000001ffffffffff,1,OK
+unprivileged,00000000a80425fb,0,DENIED_EPERM

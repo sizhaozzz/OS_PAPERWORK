@@ -1,0 +1,19 @@
+2026-11-24T15:52:45+00:00
+Linux 47313727d1e6 6.18.33.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Fri Jun  5 01:12:21 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+NAME="Ubuntu"
+VERSION="18.04.5 LTS (Bionic Beaver)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 18.04.5 LTS"
+VERSION_ID="18.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=bionic
+UBUNTU_CODENAME=bionic
+nproc=16
+commit=b6f72a7b06d01ffa7114b640312873ec2578a5ea
+clang=clang version 10.0.0 
+gcc=gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0
+python=Python 3.6.9

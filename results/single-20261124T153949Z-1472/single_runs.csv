@@ -1,0 +1,8 @@
+program,era,cpus,point,schedules,bug_found,timeouts,total_s
+CVE-2009-3547,legacy(2009-2016),all,compatibility,6,True,0,7.02
+CVE-2011-2183,legacy(2009-2016),all,compatibility,226,True,0,
+CVE-2016-1972,legacy(2009-2016),all,compatibility,55,True,0,7.91
+reorder_10,modern(SCTBench),all,scalability-baseline,1260,True,0,
+reorder_10,modern(SCTBench),0,scalability,156,False,0,
+reorder_10,modern(SCTBench),0-3,scalability,157,False,0,
+reorder_5,modern(SCTBench),all,scalability-baseline,225,True,0,30.52

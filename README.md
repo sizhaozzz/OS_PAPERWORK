@@ -195,9 +195,15 @@ Section 2.1). From the repository root on an x86_64 Linux/WSL2 host with Docker:
 ```bash
 make setup        # preflight: Docker, x86_64, pinned commit, SCHED_DEADLINE probe
 make validate     # environment validation (doubleFree + CVE-2016-1972)
-make experiments  # main experiments C1 and C2 (3 repetitions)
+make experiments  # main experiments C1 and C2 (3 repetitions) -- covers RQ1
+make rq           # RQ2 bug finding, RQ3 d x period grid, RQ4 SCHED_DEADLINE overhead
+make rq2 / rq3 / rq4   # run a single research question
+make extension    # THE submitted extension: one matrix covering the four CA points
 make figures      # regenerate SVG charts from archived CSVs (no Docker needed)
 make verify       # verify all archived logs and rebuild results/summary.csv
+# earlier exploratory runs (kept for reference, not the submitted extension):
+make extension-depth   # single-factor depth-bound sweep
+make ca / ca1 / ca2 / ca3 / ca4   # four-part Critical-Analysis study
 ```
 
 `Dockerfile` layers these scripts onto the pinned image for an alternative
@@ -205,17 +211,52 @@ self-contained build. `make clean` removes local Python caches. No build outputs
 traces or credentials are tracked (`.gitignore`); text files use LF endings
 (`.gitattributes`).
 
-## 7 Extension
+## 7 Extension — one experiment, four Critical-Analysis points
 
-An additional controlled experiment, **PERIOD's sensitivity to the bug-depth
-bound**, is provided under [`docs/EXTENSION.md`](docs/EXTENSION.md). It varies a
-single factor (`d` = 2, 3, 4, 5) on a fixed workload (`reorder_5`) and scheduler,
-and tests the paper's claim that the period bound is the key trade-off knob. Run
-it with `make extension`; results are archived under a new
-`results/extension-reorder_5-<timestamp>/` bundle. The experiment has been
-**executed**: the real run found the bug in all 12 trials, at 41 schedules for
-`d=2` and 225 for `d>=3` (the result saturates above the bug's effective depth),
-with the full measurement table and interpretation in `docs/EXTENSION.md`.
+The submitted extension is **one unified experiment** described in
+[`docs/SINGLE_EXTENSION.md`](docs/SINGLE_EXTENSION.md). A single five-program
+matrix (`make single`, bundle `results/single-*`) is deliberately designed so
+that the **same runs** provide evidence for all four presentation points at
+once — it is not four separate sub-experiments, and it does not contain RQ1–RQ4,
+which are independent research questions (Section 7b).
+
+- **Scalability**: `reorder_10` finds the bug with 16 cores (1,260 schedules in
+  180 s) but stalls at ~156 schedules with 1 or 4 cores in the same time.
+- **Compatibility**: three legacy CVEs (2009/2011/2016) compile unmodified and
+  expose their bugs on kernel 6.18 with the pinned clang 10 / gcc 7.5 stack.
+- **Security**: the matrix needs a privileged container; `CAP_SYS_NICE` (bit 23
+  of CapEff) is present only there (`PROBE_OK`), absent unprivileged (would fail
+  `EPERM`).
+- **Reproducibility**: pinned commit `b6f72a7`, fresh clone OK, offline verifier
+  OK, toolchain/kernel fingerprint recorded in the same bundle.
+
+Two earlier exploratory analyses remain archived for reference but are **not**
+the submitted extension: [`docs/EXTENSION.md`](docs/EXTENSION.md) is a
+single-factor depth-bound sweep (`make extension`, `results/extension-*`), and
+[`docs/CA_ANALYSIS.md`](docs/CA_ANALYSIS.md) is a four-part study
+(`make ca`, `results/ca-*`). The single experiment above supersedes them for the
+extension requirement.
+
+## 7b Research questions RQ1–RQ4
+
+[`docs/RQ_ANALYSIS.md`](docs/RQ_ANALYSIS.md) reports all four research questions
+and maps them to the four presentation Critical-Analysis points (scalability,
+compatibility, security, reproducibility).
+
+- **RQ1** (PDS vs Serial) is covered by C2; schedule reductions of 10%/74%/95.1%
+  on reorder_3/4/5 match the paper exactly.
+- **RQ2** (bug-finding) runs PERIOD on 8 more SCTBench programs: 8/8 bugs found,
+  with 6 of 8 schedule counts identical to the paper's Table 2. PCT/IPB/Maple are
+  not shipped in the author image, so the paper's published numbers are the
+  reference (recorded deviation).
+- **RQ3** (d x period sensitivity) sweeps `d`∈{2,3} × period∈{2,3,4,5}: period=2
+  finds no bug, period=3 gives 41 schedules, period≥4 saturates at 225; `d` has
+  no effect in this range.
+- **RQ4** (SCHED_DEADLINE overhead) micro-benchmarks 50 `sched_yield()` calls:
+  1.0006 s under SCHED_DEADLINE vs 0.00023 s under CFS for 1 thread (~4,388x).
+
+All three new RQ bundles are under `results/rq-*/` and are traceable via
+`make verify`.
 
 ## 8 Figures and further analysis
 
@@ -225,6 +266,10 @@ Generated charts (from the archived CSVs, `python3 -B scripts/make_figures.py`):
 - ![C2: PERIOD vs Serial schedules](figures/fig2_c2_schedules.svg)
 - ![C2: schedule-space reduction](figures/fig3_c2_reduction.svg)
 - ![Extension: first error vs depth bound](figures/fig4_extension_depth.svg)
+- ![RQ3: schedules vs period bound](figures/fig5_rq3_grid.svg)
+- ![RQ4: SCHED_DEADLINE vs CFS overhead](figures/fig6_rq4_overhead.svg)
+- ![CA1: scalability by threads and cores](figures/fig7_ca_scalability.svg)
+- ![CA3: SCHED_DEADLINE privilege boundary](figures/fig8_ca_security.svg)
 
 The Paper-vs-Ours tables, quantified discrepancies, limitations, and the
 contribution / AI-usage statements are in

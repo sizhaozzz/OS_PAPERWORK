@@ -1,0 +1,5 @@
+context=privileged
+caps=000001ffffffffff
+cap_sys_nice_bit=1
+CAP_SYS_NICE=present -> SCHED_DEADLINE permitted
+PROBE_OK: SCHED_DEADLINE sched_setattr succeeded

@@ -1,6 +1,6 @@
 # Convenience entry points for the PERIOD replication.
 # The environment is pinned in the author Docker image (see scripts/setup.sh).
-.PHONY: help setup validate experiments c1 c2 verify figures extension clean
+.PHONY: help setup validate experiments c1 c2 verify figures extension single rq rq2 rq3 rq4 ca ca1 ca2 ca3 ca4 clean
 
 IMAGE := wcventure/period@sha256:8f47d8b9148f2db579627842026e722d0f205ddeab13e70ee41a8df3dbd59fbc
 
@@ -10,8 +10,14 @@ help:
 	@echo "  validate     Run environment validation (doubleFree + CVE-2016-1972)"
 	@echo "  experiments  Run main experiments C1 and C2 (3 repetitions)"
 	@echo "  c1 / c2      Run a single claim"
-	@echo "  extension    Run the depth-bound extension experiment"
-	@echo "  figures      Regenerate PNG charts from archived CSVs (no Docker)"
+	@echo "  extension    Run the submitted extension (one matrix, four CA points)"
+	@echo "  single       Alias for extension"
+	@echo "  extension-depth  Earlier single-factor depth-bound sweep (reference)"
+	@echo "  rq           Run all four RQ experiments (RQ1 already in experiments)"
+	@echo "  rq2/rq3/rq4  Run a single RQ: bug finding / d x period grid / SCHED_DEADLINE overhead"
+	@echo "  ca           Run all four Critical-Analysis parts (scalability/compatibility/security/reproducibility)"
+	@echo "  ca1/ca2/ca3/ca4  Run a single CA part"
+	@echo "  figures      Regenerate SVG charts from archived CSVs (no Docker)"
 	@echo "  verify       Verify all archived logs and regenerate results/summary.csv"
 	@echo "  clean        Remove local Python caches"
 
@@ -31,7 +37,40 @@ c2:
 	bash scripts/run-experiments.sh --claim c2
 
 extension:
+	bash scripts/run-single.sh
+
+single:
+	bash scripts/run-single.sh
+
+extension-depth:
 	bash scripts/run-extension.sh
+
+rq:
+	bash scripts/run-rq.sh --suite all
+
+rq2:
+	bash scripts/run-rq.sh --suite rq2
+
+rq3:
+	bash scripts/run-rq.sh --suite rq3
+
+rq4:
+	bash scripts/run-rq.sh --suite rq4
+
+ca:
+	bash scripts/run-ca.sh
+
+ca1:
+	bash scripts/run-ca.sh --suite ca1
+
+ca2:
+	bash scripts/run-ca.sh --suite ca2
+
+ca3:
+	bash scripts/run-ca.sh --suite ca3
+
+ca4:
+	bash scripts/run-ca.sh --suite ca4
 
 figures:
 	python3 -B scripts/make_figures.py

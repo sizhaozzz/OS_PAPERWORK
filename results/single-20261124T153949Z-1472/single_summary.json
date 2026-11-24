@@ -1,0 +1,105 @@
+{
+  "experiment": "unified single extension: 5 programs x core budgets, one protocol",
+  "runs": [
+    {
+      "program": "CVE-2009-3547",
+      "era": "legacy(2009-2016)",
+      "cpus": "all",
+      "point": "compatibility",
+      "schedules": 6,
+      "bug_found": true,
+      "timeouts": 0,
+      "total_s": 7.02
+    },
+    {
+      "program": "CVE-2011-2183",
+      "era": "legacy(2009-2016)",
+      "cpus": "all",
+      "point": "compatibility",
+      "schedules": 226,
+      "bug_found": true,
+      "timeouts": 0,
+      "total_s": ""
+    },
+    {
+      "program": "CVE-2016-1972",
+      "era": "legacy(2009-2016)",
+      "cpus": "all",
+      "point": "compatibility",
+      "schedules": 55,
+      "bug_found": true,
+      "timeouts": 0,
+      "total_s": 7.91
+    },
+    {
+      "program": "reorder_10",
+      "era": "modern(SCTBench)",
+      "cpus": "all",
+      "point": "scalability-baseline",
+      "schedules": 1260,
+      "bug_found": true,
+      "timeouts": 0,
+      "total_s": ""
+    },
+    {
+      "program": "reorder_10",
+      "era": "modern(SCTBench)",
+      "cpus": "0",
+      "point": "scalability",
+      "schedules": 156,
+      "bug_found": false,
+      "timeouts": 0,
+      "total_s": ""
+    },
+    {
+      "program": "reorder_10",
+      "era": "modern(SCTBench)",
+      "cpus": "0-3",
+      "point": "scalability",
+      "schedules": 157,
+      "bug_found": false,
+      "timeouts": 0,
+      "total_s": ""
+    },
+    {
+      "program": "reorder_5",
+      "era": "modern(SCTBench)",
+      "cpus": "all",
+      "point": "scalability-baseline",
+      "schedules": 225,
+      "bug_found": true,
+      "timeouts": 0,
+      "total_s": 30.52
+    }
+  ],
+  "security": [
+    {
+      "context": "privileged",
+      "cap_eff": "000001ffffffffff",
+      "cap_sys_nice_bit": "1",
+      "sched_deadline_probe": "OK"
+    },
+    {
+      "context": "unprivileged",
+      "cap_eff": "00000000a80425fb",
+      "cap_sys_nice_bit": "0",
+      "sched_deadline_probe": "DENIED_EPERM"
+    }
+  ],
+  "reproducibility": {
+    "upstream_commit": "b6f72a7b06d01ffa7114b640312873ec2578a5ea",
+    "expected_commit": "b6f72a7b06d01ffa7114b640312873ec2578a5ea",
+    "commit_match": "yes",
+    "linux_kernel": "6.18.33.1-microsoft-standard-WSL2",
+    "arch": "x86_64",
+    "tool_versions": "clang version 10.0.0 ; gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0; Python 3.6.9",
+    "fresh_clone": "OK commit=b6f72a7b06d01ffa7114b640312873ec2578a5ea",
+    "offline_verify": "OK"
+  },
+  "points_covered": [
+    "scalability",
+    "compatibility",
+    "security",
+    "reproducibility"
+  ]
+}

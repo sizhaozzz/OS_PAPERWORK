@@ -1,0 +1,14 @@
+experiments-all-20261114T112751Z-1 : verified 30 C1 runs and 24 C2 runs
+experiments-c2-20261114T142131Z-1 : verified 0 C1 runs and 24 C2 runs
+initial-validation-20261106-122033 / doubleFree: 6 schedules, 4 buggy, 0 timeouts
+initial-validation-20261106-122033 / CVE-2016-1972: 346 schedules, 25 buggy, 0 timeouts
+initial-validation-20261106-122202 / doubleFree: 6 schedules, 4 buggy, 0 timeouts
+initial-validation-20261106-122202 / CVE-2016-1972: 346 schedules, 28 buggy, 0 timeouts
+validation-20261106T123317Z-1 / doubleFree: 6 schedules, 4 buggy, 0 timeouts
+validation-20261106T123317Z-1 / CVE-2016-1972: 354 schedules, 28 buggy, 0 timeouts
+extension-reorder_5-20261122T060242Z-1 : verified 12 extension runs across 4 depth points
+rq-rq2-20261124T142134Z-1 : verified 8 RQ runs (rq2=8, rq3=0, rq4=0)
+rq-rq3-20261124T143652Z-1 : verified 8 RQ runs (rq2=0, rq3=8, rq4=0)
+rq-rq4-20261124T143005Z-1 : skipped (marked invalid)
+rq-rq4-20261124T143635Z-1 : verified 12 RQ runs (rq2=0, rq3=0, rq4=4)
+PASS: 6 validation runs, 2 experiment, 1 extension and 3 RQ bundles verified

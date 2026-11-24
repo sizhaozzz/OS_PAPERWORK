@@ -1,0 +1,8 @@
+REPORT=/repro/results/single-20261124T153949Z-1472
+MODE=unpriv
+=== same protocol, unprivileged context: capability boundary only ===
+context=unprivileged
+caps=00000000a80425fb
+cap_sys_nice_bit=0
+CAP_SYS_NICE=absent -> sched_setattr would fail with EPERM (Operation not permitted)
+SINGLE_SUITE_DONE=/repro/results/single-20261124T153949Z-1472 MODE=unpriv

@@ -1,0 +1,129 @@
+{
+  "ca1": [
+    {
+      "program": "reorder_10",
+      "threads": 10,
+      "cpus": "0",
+      "schedules": 157,
+      "bug_found": false,
+      "timeouts": 0,
+      "total_s": ""
+    },
+    {
+      "program": "reorder_10",
+      "threads": 10,
+      "cpus": "0_15",
+      "schedules": 2350,
+      "bug_found": true,
+      "timeouts": 0,
+      "total_s": ""
+    },
+    {
+      "program": "reorder_10",
+      "threads": 10,
+      "cpus": "0_3",
+      "schedules": 159,
+      "bug_found": false,
+      "timeouts": 0,
+      "total_s": ""
+    },
+    {
+      "program": "reorder_10",
+      "threads": 10,
+      "cpus": "all(16)",
+      "schedules": 2350,
+      "bug_found": true,
+      "timeouts": 0,
+      "total_s": ""
+    },
+    {
+      "program": "reorder_20",
+      "threads": 20,
+      "cpus": "all(16)",
+      "schedules": 197,
+      "bug_found": true,
+      "timeouts": 0,
+      "total_s": ""
+    },
+    {
+      "program": "reorder_5",
+      "threads": 5,
+      "cpus": "all(16)",
+      "schedules": 225,
+      "bug_found": true,
+      "timeouts": 0,
+      "total_s": ""
+    },
+    {
+      "program": "reorder_50",
+      "threads": 50,
+      "cpus": "all(16)",
+      "schedules": 527,
+      "bug_found": true,
+      "timeouts": 0,
+      "total_s": ""
+    }
+  ],
+  "ca2": [
+    {
+      "program": "CVE-2009-3547",
+      "era": "legacy(2009-2016)",
+      "build_ok": "OK",
+      "binary_found": "OK",
+      "schedules": 6,
+      "bug_found": true,
+      "timeouts": 0,
+      "total_s": ""
+    },
+    {
+      "program": "CVE-2011-2183",
+      "era": "legacy(2009-2016)",
+      "build_ok": "OK",
+      "binary_found": "OK",
+      "schedules": 233,
+      "bug_found": true,
+      "timeouts": 0,
+      "total_s": ""
+    },
+    {
+      "program": "CVE-2016-1972",
+      "era": "legacy(2009-2016)",
+      "build_ok": "OK",
+      "binary_found": "OK",
+      "schedules": 55,
+      "bug_found": true,
+      "timeouts": 0,
+      "total_s": ""
+    }
+  ],
+  "ca3": [
+    {
+      "context": "privileged",
+      "cap_eff": "000001ffffffffff",
+      "cap_sys_nice_bit": "1",
+      "sched_deadline_probe": "OK",
+      "errno": "",
+      "errno_name": ""
+    },
+    {
+      "context": "unprivileged",
+      "cap_eff": "00000000a80425fb",
+      "cap_sys_nice_bit": "0",
+      "sched_deadline_probe": "DENIED_EPERM",
+      "errno": 1,
+      "errno_name": "Operation not permitted"
+    }
+  ],
+  "ca4": [
+    {
+      "upstream_commit": "b6f72a7b06d01ffa7114b640312873ec2578a5ea",
+      "expected_commit": "b6f72a7b06d01ffa7114b640312873ec2578a5ea",
+      "commit_match": "yes",
+      "image": "",
+      "tool_versions": "clang version 10.0.0  gcc=gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0 python=Python 3.6.9",
+      "linux_kernel": "6.18.33.1-microsoft-standard-WSL2",
+      "fresh_clone": "OK commit=b6f72a7b06d01ffa7114b640312873ec2578a5ea",
+      "offline_verify": "OK"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+REPORT=/repro/results/ca-20261124T150414Z-703
+SUITE=ca3-unpriv
+=== CA3: security - SCHED_DEADLINE privilege boundary (unprivileged) ===
+context=unprivileged
+caps=00000000a80425fb
+cap_sys_nice_bit=0
+CAP_SYS_NICE=absent -> sched_setattr would fail with EPERM (Operation not permitted)
+{
+  "ca1_rows": 7,
+  "ca2_rows": 6,
+  "ca3_rows": 2,
+  "ca4_rows": 1
+}
+CA_SUITE_DONE=/repro/results/ca-20261124T150414Z-703 SUITE=ca3-unpriv
