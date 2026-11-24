@@ -98,14 +98,3 @@ a longer timeout in a follow-up run.
   3 repetitions per depth; the saturation for `d >= 3` is specific to this
   bug's effective depth and should not be generalised to other workloads. See
   `docs/EXTENSION.md` for the full measurement table and interpretation.
-
-## 4. Contribution statement (template - fill in before submission)
-
-> [Member A, student ID] contributed to [tasks].
-> [Member B, student ID] contributed to [tasks].
-> [Member C, student ID] contributed to [tasks].
-> [Member D, student ID] contributed to [tasks].
-> All members reviewed the final report and results.
-
-Each member must also make substantive commits from their own GitHub account,
-and every commit message must include the member's student ID and full name.
