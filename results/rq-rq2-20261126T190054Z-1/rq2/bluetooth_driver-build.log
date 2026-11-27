@@ -1,0 +1,56 @@
++ cd /workdir/PERIOD/evaluation/CS/bluetooth_driver
++ [[ -f ./cleanDIR.sh ]]
++ bash ./cleanDIR.sh
++ bash ./build.sh
+Everything's fine!
++ cd /workdir/PERIOD/evaluation/CS/bluetooth_driver
++ ./cleanDIR.sh
++ clang -g -emit-llvm -c ./bluetooth_driver_bad.c -o bluetooth_driver_bad.bc
+./bluetooth_driver_bad.c:73:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main() 
+^
+./bluetooth_driver_bad.c:73:1: note: change return type to 'int'
+void main() 
+^~~~
+int
+./bluetooth_driver_bad.c:84:30: warning: incompatible pointer types passing 'void *(DEVICE_EXTENSION *)' (aka 'void *(struct DEVICE *)') to parameter of type 'void *(*)(void *)' [-Wincompatible-pointer-types]
+  pthread_create(&id2, NULL, BCSP_PnpAdd, &e);
+                             ^~~~~~~~~~~
+/usr/include/pthread.h:236:15: note: passing argument to parameter '__start_routine' here
+                           void *(*__start_routine) (void *),
+                                   ^
+2 warnings generated.
++ /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh bluetooth_driver_bad
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/CS/bluetooth_driver
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.bluetooth_driver_bad
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root  286 Nov 26 19:01 ConConfig.bluetooth_driver_bad
+-rw-r--r-- 1 root root 8.5K Nov 26 19:01 bluetooth_driver_bad.bc
+-rw-rw-r-- 1 root root 1.5K Jan 16  2022 bluetooth_driver_bad.c
+-rw-r--r-- 1 root root  966 Nov 26 19:01 mempair.bluetooth_driver_bad
+-rw-r--r-- 1 root root  14K Nov 26 19:01 mempair.bluetooth_driver_bad.npz
+-rw-r--r-- 1 root root 1.9K Nov 26 19:01 mssa.bluetooth_driver_bad
+-rw-r--r-- 1 root root 3.2K Nov 26 19:01 so.bluetooth_driver_bad
+/workdir/PERIOD/evaluation/CS/bluetooth_driver
++ export Con_PATH=/workdir/PERIOD/evaluation/CS/bluetooth_driver/ConConfig.bluetooth_driver_bad
++ Con_PATH=/workdir/PERIOD/evaluation/CS/bluetooth_driver/ConConfig.bluetooth_driver_bad
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast++ -g ./bluetooth_driver_bad.bc -o bluetooth_driver_bad -lpthread -ldl
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/CS/bluetooth_driver/ConConfig.bluetooth_driver_bad
+[DEBUG]
+[DEBUG] Instrumentation for bluetooth_driver_bad.c:21
+[DEBUG] Instrumentation for bluetooth_driver_bad.c:24
+[DEBUG] Instrumentation for bluetooth_driver_bad.c:25
+[DEBUG] Instrumentation for bluetooth_driver_bad.c:35
+[DEBUG] Instrumentation for bluetooth_driver_bad.c:36
+[DEBUG] Instrumentation for bluetooth_driver_bad.c:37
+[DEBUG] Instrumentation for bluetooth_driver_bad.c:41
+[DEBUG] Instrumentation for bluetooth_driver_bad.c:52
+[DEBUG] Instrumentation for bluetooth_driver_bad.c:63
+[DEBUG] Instrumentation for bluetooth_driver_bad.c:65
+[DEBUG] Instrumentation for bluetooth_driver_bad.c:68

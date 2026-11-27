@@ -25,9 +25,9 @@ PCT/IPB/Maple binaries are **not** distributed with the artifact. We therefore
 run PERIOD on eight additional SCTBench programs and compare the schedule
 counts directly against the paper's Table 2 PERIOD column (the paper's SOTA
 numbers are used as the external reference). Bundle:
-`results/rq-rq2-20261124T142134Z-1/` (1 run each, 10,000 budget, 240 s timeout).
+`results/rq-rq2-20261124T142134Z-1/` (1 run each, 5,000-schedule budget, 240 s timeout).
 
-| Program | Ours: schedules to first bug | Paper (Table 2, PERIOD): schedules | Ours buggy interleavings | Paper | Bug found |
+| Program | Ours: total schedules | Paper (Table 2, PERIOD): schedules | Ours buggy interleavings | Paper | Bug found |
 | --- | --- | --- | --- | --- | --- |
 | account | 65 | 65 | 27 | 26 | yes |
 | bluetooth_driver | 205 | 205 | 7 | 9 | yes |
@@ -38,9 +38,7 @@ numbers are used as the external reference). Bundle:
 | queue | 833 | 998 | 64 | 119 | yes |
 | stack | 918 | 918 | 95 | 144 | yes |
 
-**Result: 8/8 programs produced a bug.** Six of eight schedule counts match the
-paper exactly (65, 205, 42, 14, 39, 918); two (circular_buffer, queue) found the
-bug *earlier* than the paper. The two deadlock programs report the bug as
+**Result: 8/8 programs produced a bug.** Total schedule counts matched Table 2 for six of the eight programs. For circular_buffer, PERIOD explored 546 schedules compared with 871 in the paper. For queue, it explored 833 compared with 998. The two deadlock programs report the bug as
 timeouts rather than assertion failures, which is expected for DL-type bugs.
 
 **Scope / division of work.** This commit runs **PERIOD only** — no other
@@ -51,9 +49,21 @@ Table 2 numbers are used only as an external reference, not as a reproduced
 head-to-head comparison. Two programs differ in buggy-interleaving counts
 (e.g. 95 vs 144 on stack): that metric depends on how long exploration continues
 after the first failure and on kernel timing, not on bug-finding ability.
-Verdict for the part we ran: **supported** (PERIOD finds all bugs with schedule
-counts equal to or better than the paper's); the cross-tool comparison is left
-to the other members.
+Verdict for this batch: PERIOD detected the target bug in all eight tested programs. Comparing its bug-finding performance with the six baseline methods requires measurements from those methods.
+
+### Three-run PERIOD comparison with Table 2
+
+We ran PERIOD three times on each of three SCTBench programs, with a budget of 10,000 schedules and a 240-second timeout per run. All nine runs detected the target assertion failure and exited with code 0. Our results are reported as mean ± sample standard deviation.
+
+| Program | Runs detecting the bug | First bug: ours | First bug: paper | Total schedules: ours | Total schedules: paper |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| account | 3/3 | 6.33 ± 3.51 | 2 | 65 ± 0 | 65 |
+| bluetooth_driver | 3/3 | 9 ± 0 | 9 | 205 ± 0 | 205 |
+| circular_buffer | 3/3 | 17 ± 0 | 17 | 574 ± 48.50 | 871 |
+
+For bluetooth_driver, both measurements matched Table 2. For account, the total was 65 in every run, but the first failure occurred later on average than in the paper. For circular_buffer, all three runs found the first failure at schedule 17, matching the paper, while exploring 297 fewer schedules on average.
+
+[Run summary and logs](../results/rq-rq2-20261126T190054Z-1/)
 
 ## RQ3 — Hyperparameter sensitivity: bug depth d x period bound
 

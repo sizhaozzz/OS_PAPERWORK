@@ -1,0 +1,39 @@
+{
+  "rq2": [
+    {
+      "program": "account",
+      "reps": 3,
+      "bug_found_runs": 3,
+      "first_error_mean": 6.33,
+      "first_error_stdev": 3.51,
+      "schedules_mean": 65.0,
+      "schedules_stdev": 0.0,
+      "buggy_interleavings_mean": 26.67,
+      "any_capped": false
+    },
+    {
+      "program": "bluetooth_driver",
+      "reps": 3,
+      "bug_found_runs": 3,
+      "first_error_mean": 9.0,
+      "first_error_stdev": 0.0,
+      "schedules_mean": 205.0,
+      "schedules_stdev": 0.0,
+      "buggy_interleavings_mean": 7.0,
+      "any_capped": false
+    },
+    {
+      "program": "circular_buffer",
+      "reps": 3,
+      "bug_found_runs": 3,
+      "first_error_mean": 17.0,
+      "first_error_stdev": 0.0,
+      "schedules_mean": 574.0,
+      "schedules_stdev": 48.5,
+      "buggy_interleavings_mean": 58.67,
+      "any_capped": false
+    }
+  ],
+  "rq3": [],
+  "rq4": []
+}
