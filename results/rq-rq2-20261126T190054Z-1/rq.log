@@ -1,0 +1,26 @@
+RUN_ID=rq-rq2-20261126T190054Z-1
+SUITE=rq2
+REPS=3
+RUNS_LIMIT=10000
+CASE_TIMEOUT=240
+WORK=/workdir/period-rq.orAIbb
+PASS: SCHED_DEADLINE
+=== RQ2: PERIOD bug-finding on additional workloads ===
+--- [RQ2] Building account ---
+--- [RQ2] account rep=1/3 ---
+--- [RQ2] account rep=2/3 ---
+--- [RQ2] account rep=3/3 ---
+--- [RQ2] Building bluetooth_driver ---
+--- [RQ2] bluetooth_driver rep=1/3 ---
+--- [RQ2] bluetooth_driver rep=2/3 ---
+--- [RQ2] bluetooth_driver rep=3/3 ---
+--- [RQ2] Building circular_buffer ---
+--- [RQ2] circular_buffer rep=1/3 ---
+--- [RQ2] circular_buffer rep=2/3 ---
+--- [RQ2] circular_buffer rep=3/3 ---
+{
+  "rq2_programs": 3,
+  "rq3_configs": 0,
+  "rq4_configs": 0
+}
+RQ_SUITE_DONE=/repro/results/rq-rq2-20261126T190054Z-1

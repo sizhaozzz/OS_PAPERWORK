@@ -1,0 +1,44 @@
++ cd /workdir/PERIOD/evaluation/CS/account
++ [[ -f ./cleanDIR.sh ]]
++ bash ./cleanDIR.sh
++ bash ./build.sh
+Everything's fine!
++ cd /workdir/PERIOD/evaluation/CS/account
++ ./cleanDIR.sh
++ clang -g -emit-llvm -c ./account_bad.c -o account_bad.bc
++ /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh account_bad
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/CS/account
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.account_bad
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root  221 Nov 26 19:00 ConConfig.account_bad
+-rw-r--r-- 1 root root 8.0K Nov 26 19:00 account_bad.bc
+-rw-rw-r-- 1 root root  966 Jan 16  2022 account_bad.c
+-rw-r--r-- 1 root root 1.4K Nov 26 19:00 mempair.account_bad
+-rw-r--r-- 1 root root  16K Nov 26 19:00 mempair.account_bad.npz
+-rw-r--r-- 1 root root 1.7K Nov 26 19:00 mssa.account_bad
+-rw-r--r-- 1 root root 1.9K Nov 26 19:00 so.account_bad
+/workdir/PERIOD/evaluation/CS/account
++ export Con_PATH=/workdir/PERIOD/evaluation/CS/account/ConConfig.account_bad
++ Con_PATH=/workdir/PERIOD/evaluation/CS/account/ConConfig.account_bad
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast++ -g ./account_bad.bc -o account_bad -lpthread -ldl
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/CS/account/ConConfig.account_bad
+[DEBUG]
+[DEBUG] Instrumentation for account_bad.c:12
+[DEBUG] Instrumentation for account_bad.c:13
+[DEBUG] Instrumentation for account_bad.c:14
+[DEBUG] Instrumentation for account_bad.c:21
+[DEBUG] Instrumentation for account_bad.c:22
+[DEBUG] Instrumentation for account_bad.c:23
+[DEBUG] Instrumentation for account_bad.c:30
+[DEBUG] Instrumentation for account_bad.c:31
+[DEBUG] Instrumentation for account_bad.c:32
+[DEBUG] Instrumentation for account_bad.c:43
+[DEBUG] Instrumentation for account_bad.c:44
+[DEBUG] Instrumentation for account_bad.c:45
+[DEBUG] Instrumentation for account_bad.c:46
